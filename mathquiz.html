@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Math Quiz
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="mathquiz.css"
+    >
+
+</head>
+
+
+<body>
+<script src="audio.js"></script>
+<script src="index.js"></script>
+    <!-- BACKGROUND -->
+
+    <div class="math-world">
+
+        <div class="math-glow"></div>
+
+        <div class="math-symbol s1">
+            +
+        </div>
+
+        <div class="math-symbol s2">
+            ×
+        </div>
+
+        <div class="math-symbol s3">
+            ÷
+        </div>
+
+        <div class="math-symbol s4">
+            =
+        </div>
+
+        <div class="math-symbol s5">
+            ?
+        </div>
+
+    </div>
+
+
+
+    <!-- HUD -->
+
+    <header class="hud">
+
+
+        <div class="player-card">
+
+            <span id="playerIcon">
+                🐶
+            </span>
+
+            <div>
+
+                <small>
+                    PLAYER
+                </small>
+
+                <strong id="playerName">
+                    Maximus
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="question-counter">
+
+            <small>
+                QUESTION
+            </small>
+
+            <strong id="questionCounter">
+                1 / 10
+            </strong>
+
+        </div>
+
+
+
+        <div
+            class="timer-card"
+            id="timerCard"
+        >
+
+            <small>
+                TIME
+            </small>
+
+            <strong id="timerText">
+                15
+            </strong>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- LIVES -->
+
+    <div
+        class="lives"
+        id="lives"
+    >
+        ❤️ ❤️
+    </div>
+
+
+
+    <!-- QUIZ -->
+
+    <main class="quiz-area">
+
+
+        <div class="quiz-badge">
+            🧮 MATH QUIZ
+        </div>
+
+
+        <section class="question-card">
+
+
+            <small id="questionType">
+                ADDITION
+            </small>
+
+
+            <div
+                class="question-text"
+                id="questionText"
+            >
+                12 + 8 = ?
+            </div>
+
+
+        </section>
+
+
+
+        <div
+            class="answer-grid"
+            id="answerGrid"
+        >
+
+            <button
+                type="button"
+                class="answer-button"
+                data-answer-index="0"
+            >
+                20
+            </button>
+
+
+            <button
+                type="button"
+                class="answer-button"
+                data-answer-index="1"
+            >
+                21
+            </button>
+
+
+            <button
+                type="button"
+                class="answer-button"
+                data-answer-index="2"
+            >
+                19
+            </button>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- FEEDBACK -->
+
+    <div
+        class="feedback"
+        id="feedback"
+    >
+        ✅
+    </div>
+
+
+
+    <!-- INSTRUCTION -->
+
+    <div
+        class="overlay show"
+        id="instructionOverlay"
+    >
+
+        <div class="popup instruction-popup">
+
+            <div class="popup-icon">
+                🧮
+            </div>
+
+            <div class="difficulty">
+                🟠 HARD ⭐⭐⭐
+            </div>
+
+            <h1>
+                MATH QUIZ
+            </h1>
+
+            <div class="instruction-line">
+                ✏️ Jawab 10 pertanyaan simpel matematika.
+            </div>
+
+            <div class="instruction-line">
+                💔 Salah jawab / waktu habis = kehilangan nyawa.
+            </div>
+
+            <button
+                type="button"
+                class="main-button"
+                id="readyButton"
+            >
+                READY!
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- COUNTDOWN -->
+
+    <div
+        class="overlay"
+        id="countdownOverlay"
+    >
+
+        <div
+            class="countdown"
+            id="countdown"
+        >
+            3
+        </div>
+
+    </div>
+
+
+
+    <!-- QUESTION TRANSITION -->
+
+    <div
+        class="question-transition"
+        id="questionTransition"
+    >
+
+        <small>
+            NEXT UP
+        </small>
+
+        <h1 id="nextQuestionText">
+            QUESTION 2
+        </h1>
+
+    </div>
+
+
+
+    <!-- WIN -->
+
+    <div
+        class="overlay"
+        id="winOverlay"
+    >
+
+        <div class="popup win-popup">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <h1>
+                YOU WON!
+            </h1>
+
+            <div class="reward">
+                ⭐ +1 STAR
+            </div>
+
+            <button
+                type="button"
+                class="main-button"
+                id="winButton"
+            >
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LOSE -->
+
+    <div
+        class="overlay"
+        id="loseOverlay"
+    >
+
+        <div class="popup lose-popup">
+
+            <div class="result-icon">
+                💔
+            </div>
+
+            <h1>
+                YOU LOST!
+            </h1>
+
+            <p id="loseReason">
+                No lives left!
+            </p>
+
+            <button
+                type="button"
+                class="main-button"
+                id="loseButton"
+            >
+                BACK TO HOME
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="mathquiz.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Sky Jump</title>
+
+    <link
+        rel="stylesheet"
+        href="skyjump.css"
+    >
+
+</head>
+
+
+<body>
+
+<script src="audio.js"></script>
+<script src="index.js"></script>
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
+
+    <div class="sky-bg">
+
+        <div class="sun"></div>
+
+        <div class="cloud cloud1">☁️</div>
+        <div class="cloud cloud2">☁️</div>
+        <div class="cloud cloud3">☁️</div>
+
+        <div class="spark s1">✨</div>
+        <div class="spark s2">✨</div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HUD
+    ====================================================== -->
+
+    <header class="hud">
+
+
+        <div class="player-card">
+
+            <span id="hudPlayerIcon">
+                🐶
+            </span>
+
+            <div>
+
+                <small>
+                    PLAYER
+                </small>
+
+                <strong id="hudPlayerName">
+                    Maximus
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="height-card">
+
+            <small>
+                HEIGHT
+            </small>
+
+            <strong id="heightText">
+                0 / 12
+            </strong>
+
+        </div>
+
+
+
+        <div
+            class="timer-card"
+            id="timerCard"
+        >
+
+            <small>
+                TIME
+            </small>
+
+            <strong id="timerText">
+                30
+            </strong>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         TITLE
+    ====================================================== -->
+
+    <div class="game-title">
+
+        <strong>
+            ☁️ SKY JUMP
+        </strong>
+
+        <span>
+            🟢 EASY ⭐
+        </span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         GAME WINDOW
+    ====================================================== -->
+
+    <main
+        class="game-window"
+        id="gameWindow"
+    >
+
+
+        <!-- FINISH -->
+
+        <div
+            class="finish-area"
+            id="finishArea"
+        >
+
+            <div class="finish-cloud">
+                ☁️
+            </div>
+
+            <div class="finish-flag">
+                🏁
+            </div>
+
+            <strong>
+                FINISH
+            </strong>
+
+        </div>
+
+
+
+        <!-- PLATFORM WORLD -->
+
+        <div
+            class="platform-layer"
+            id="platformLayer"
+        ></div>
+
+
+
+        <!-- START PLATFORM -->
+
+        <div
+            class="start-platform"
+            id="startPlatform"
+        ></div>
+
+
+
+        <!-- PLAYER -->
+
+        <div
+            class="jumper"
+            id="jumper"
+        >
+
+            <div
+                class="jumper-icon"
+                id="jumperIcon"
+            >
+                🐶
+            </div>
+
+            <div class="jumper-tag">
+                YOU
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         CONTROLS
+    ====================================================== -->
+
+    <div class="controls">
+
+
+        <button
+            type="button"
+            class="direction-button"
+            id="leftButton"
+        >
+
+            <span>
+                ←
+            </span>
+
+            <small>
+                A
+            </small>
+
+        </button>
+
+
+
+        <div class="direction-info">
+
+            <strong id="directionText">
+                FIND THE NEXT PLATFORM
+            </strong>
+
+            <small>
+                Swipe or use arrows
+            </small>
+
+        </div>
+
+
+
+        <button
+            type="button"
+            class="direction-button"
+            id="rightButton"
+        >
+
+            <span>
+                →
+            </span>
+
+            <small>
+                D
+            </small>
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         INSTRUCTION
+    ====================================================== -->
+
+    <div
+        class="overlay show"
+        id="instructionOverlay"
+    >
+
+        <div class="popup instruction-popup">
+
+
+            <div class="popup-icon">
+                ☁️⬆️
+            </div>
+
+
+            <div class="difficulty">
+                🟢 EASY ⭐
+            </div>
+
+
+            <h1>
+                SKY JUMP
+            </h1>
+
+
+            <div class="instructions">
+
+                <div>
+                    ← A / swipe kiri
+                </div>
+
+                <div>
+                    → D / swipe kanan
+                </div>
+
+                <div>
+                    ⏱ Capai puncak dalam 30 detik.
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="main-button"
+                id="readyButton"
+            >
+                READY!
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         COUNTDOWN
+    ====================================================== -->
+
+    <div
+        class="overlay"
+        id="countdownOverlay"
+    >
+
+        <div
+            class="countdown"
+            id="countdown"
+        >
+            3
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         DEATH MESSAGE
+    ====================================================== -->
+
+    <div
+        class="death-message"
+        id="deathMessage"
+    >
+        ☠️ YOU DIED
+    </div>
+
+
+
+    <!-- =====================================================
+         WIN
+    ====================================================== -->
+
+    <div
+        class="overlay"
+        id="winOverlay"
+    >
+
+        <div class="popup win-popup">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <h1>
+                YOU WON!
+            </h1>
+
+            <div class="reward">
+                ⭐ +1 STAR
+            </div>
+
+            <button
+                type="button"
+                class="main-button"
+                id="winButton"
+            >
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LOSE
+    ====================================================== -->
+
+    <div
+        class="overlay"
+        id="loseOverlay"
+    >
+
+        <div class="popup lose-popup">
+
+            <div class="result-icon">
+                ☠️
+            </div>
+
+            <h1>
+                YOU LOST!
+            </h1>
+
+            <p id="loseReason">
+                You fell!
+            </p>
+
+            <button
+                type="button"
+                class="main-button"
+                id="loseButton"
+            >
+                BACK TO HOME
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="skyjump.js"></script>
+
+
+</body>
+
+</html>

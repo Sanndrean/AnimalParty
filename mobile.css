@@ -1,0 +1,1432 @@
+/* =========================================================
+   ANIMAL PARTY - GLOBAL MOBILE SUPPORT
+   Pasang file ini SETELAH css utama setiap halaman.
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+html {
+    width: 100%;
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+body {
+    width: 100%;
+    min-height: 100dvh;
+
+    overflow-x: hidden;
+
+    overscroll-behavior: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+button {
+    touch-action: manipulation;
+}
+
+
+img,
+canvas,
+video {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   ALL POPUPS / OVERLAYS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .instruction-overlay,
+    .popup-overlay,
+    .result-overlay,
+    .countdown-overlay,
+    .feedback-overlay,
+    .question-transition,
+    .round-overlay,
+    .reveal-overlay,
+    .chant-overlay,
+    .death-overlay,
+    .caught-overlay,
+    .reward-overlay,
+    .level-up-overlay,
+    .rank-up-overlay,
+    .game-transition,
+    .select-transition,
+    .continue-transition {
+
+        padding:
+            max(12px, env(safe-area-inset-top))
+            12px
+            max(12px, env(safe-area-inset-bottom));
+
+        overflow-y: auto;
+
+    }
+
+
+    .instruction-popup,
+    .help-popup,
+    .result-card,
+    .round-popup,
+    .reveal-card,
+    .question-transition-card,
+    .level-up-card,
+    .rank-up-card {
+
+        width:
+            min(
+                94vw,
+                470px
+            ) !important;
+
+        max-width:
+            94vw !important;
+
+        max-height:
+            calc(
+                100dvh - 28px
+            ) !important;
+
+        overflow-y: auto;
+
+        padding:
+            18px !important;
+
+        border-width:
+            5px !important;
+
+        border-radius:
+            22px !important;
+
+    }
+
+
+    /* Popup jangan terlalu tinggi */
+
+    .instruction-main-icon,
+    .instruction-icon {
+
+        font-size:
+            42px !important;
+
+    }
+
+
+    .instruction-popup h1 {
+
+        font-size:
+            27px !important;
+
+        margin-top:
+            5px !important;
+
+        margin-bottom:
+            7px !important;
+
+    }
+
+
+    .difficulty {
+
+        padding:
+            5px 10px !important;
+
+        border-width:
+            3px !important;
+
+        font-size:
+            9px !important;
+
+    }
+
+
+    .instruction-row,
+    .instruction-card {
+
+        padding:
+            8px 9px !important;
+
+        margin-top:
+            6px !important;
+
+        gap:
+            8px !important;
+
+    }
+
+
+    .instruction-symbol {
+
+        min-width:
+            40px !important;
+
+        font-size:
+            22px !important;
+
+    }
+
+
+    .instruction-row strong,
+    .instruction-card strong {
+
+        font-size:
+            10px !important;
+
+    }
+
+
+    .instruction-row p,
+    .instruction-card p {
+
+        font-size:
+            8px !important;
+
+    }
+
+
+    .ready-button {
+
+        min-height:
+            48px;
+
+        margin-top:
+            10px !important;
+
+        padding:
+            10px !important;
+
+        font-size:
+            15px !important;
+
+        border-width:
+            4px !important;
+
+    }
+
+
+}
+
+
+/* =========================================================
+   GENERAL HUD
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .game-hud,
+    .quiz-hud,
+    .rps-hud {
+
+        top:
+            max(
+                7px,
+                env(safe-area-inset-top)
+            ) !important;
+
+        left:
+            7px !important;
+
+        right:
+            7px !important;
+
+        gap:
+            5px !important;
+
+        align-items:
+            flex-start !important;
+
+    }
+
+
+    .player-hud,
+    .player-card {
+
+        padding:
+            5px 8px !important;
+
+        border-width:
+            3px !important;
+
+        border-radius:
+            14px !important;
+
+    }
+
+
+    .player-icon,
+    .hud-player-icon {
+
+        font-size:
+            27px !important;
+
+    }
+
+
+    .player-hud small,
+    .player-card small,
+    .timer-hud small,
+    .timer-card small,
+    .height-hud small,
+    .progress-hud small,
+    .question-counter small,
+    .round-card small,
+    .score-card small,
+    .life-card small,
+    .light-hud small {
+
+        font-size:
+            6px !important;
+
+        letter-spacing:
+            1px !important;
+
+    }
+
+
+    .player-hud strong,
+    .player-card strong {
+
+        font-size:
+            11px !important;
+
+    }
+
+
+    .timer-hud,
+    .timer-card,
+    .height-hud,
+    .progress-hud,
+    .question-counter,
+    .round-card,
+    .score-card,
+    .life-card,
+    .light-hud {
+
+        min-width:
+            70px !important;
+
+        padding:
+            6px 7px !important;
+
+        border-width:
+            3px !important;
+
+        border-radius:
+            14px !important;
+
+    }
+
+
+    .timer-hud strong,
+    .timer-card strong,
+    .height-hud strong,
+    .progress-hud strong,
+    .question-counter strong,
+    .round-card strong,
+    .score-card strong,
+    .life-card strong,
+    .light-hud strong {
+
+        font-size:
+            16px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   LARGE COUNTDOWN
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .countdown-number {
+
+        font-size:
+            clamp(
+                80px,
+                25vw,
+                130px
+            ) !important;
+
+    }
+
+
+    .death-text,
+    .caught-overlay h1 {
+
+        font-size:
+            clamp(
+                42px,
+                14vw,
+                70px
+            ) !important;
+
+        text-align:
+            center;
+
+    }
+
+
+    .feedback-icon {
+
+        font-size:
+            110px !important;
+
+    }
+
+
+}
+
+
+/* =========================================================
+   RESULT SCREENS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .result-icon {
+
+        font-size:
+            62px !important;
+
+    }
+
+
+    .result-card h1 {
+
+        font-size:
+            34px !important;
+
+    }
+
+
+    .result-card p {
+
+        font-size:
+            10px !important;
+
+    }
+
+
+    .reward-box {
+
+        padding:
+            9px !important;
+
+        font-size:
+            15px !important;
+
+    }
+
+
+    .result-button {
+
+        min-height:
+            48px;
+
+        padding:
+            10px !important;
+
+        font-size:
+            13px !important;
+
+        border-width:
+            4px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   INDEX / CHARACTER SELECT
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .intro-content {
+
+        width:
+            88vw !important;
+
+        top:
+            45% !important;
+
+    }
+
+
+    .party-badge {
+
+        font-size:
+            7px !important;
+
+        letter-spacing:
+            1px !important;
+
+    }
+
+
+    .logo-animal {
+
+        font-size:
+            clamp(
+                50px,
+                17vw,
+                80px
+            ) !important;
+
+        -webkit-text-stroke:
+            4px #267bc7 !important;
+
+    }
+
+
+    .logo-party {
+
+        font-size:
+            clamp(
+                46px,
+                16vw,
+                75px
+            ) !important;
+
+        -webkit-text-stroke:
+            4px #ea7121 !important;
+
+    }
+
+
+    .creator-bubble {
+
+        margin-top:
+            18px !important;
+
+        padding:
+            7px 17px !important;
+
+        font-size:
+            10px !important;
+
+    }
+
+
+    .intro-play-button {
+
+        min-width:
+            190px !important;
+
+        padding:
+            12px 25px !important;
+
+        border-width:
+            5px !important;
+
+        font-size:
+            22px !important;
+
+    }
+
+
+    .intro-character {
+
+        font-size:
+            clamp(
+                50px,
+                16vw,
+                75px
+            ) !important;
+
+    }
+
+
+    .character-screen {
+
+        padding:
+            15px
+            10px
+            calc(
+                25px +
+                env(safe-area-inset-bottom)
+            ) !important;
+
+    }
+
+
+    .select-header h1 {
+
+        font-size:
+            27px !important;
+
+    }
+
+
+    .selected-preview {
+
+        height:
+            165px !important;
+
+    }
+
+
+    .selected-character-icon {
+
+        font-size:
+            90px !important;
+
+    }
+
+
+    .selected-character-name {
+
+        font-size:
+            14px !important;
+
+    }
+
+
+    .character-grid {
+
+        width:
+            100% !important;
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            ) !important;
+
+        gap:
+            7px !important;
+
+    }
+
+
+    .character-card {
+
+        min-height:
+            88px !important;
+
+        padding:
+            7px 3px !important;
+
+        border-width:
+            3px !important;
+
+        border-radius:
+            16px !important;
+
+    }
+
+
+    .character-emoji {
+
+        font-size:
+            38px !important;
+
+    }
+
+
+    .character-card strong {
+
+        max-width:
+            100%;
+
+        overflow:
+            hidden;
+
+        text-overflow:
+            ellipsis;
+
+        white-space:
+            nowrap;
+
+        font-size:
+            8px !important;
+
+    }
+
+
+    .continue-button {
+
+        width:
+            90% !important;
+
+        min-height:
+            52px;
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .status-area {
+
+        left:
+            7px !important;
+
+        top:
+            max(
+                7px,
+                env(safe-area-inset-top)
+            ) !important;
+
+        gap:
+            5px !important;
+
+    }
+
+
+    .status-card {
+
+        border-width:
+            3px !important;
+
+        border-radius:
+            14px !important;
+
+    }
+
+
+    .level-card {
+
+        min-width:
+            90px !important;
+
+        padding:
+            6px !important;
+
+    }
+
+
+    .rank-card {
+
+        min-width:
+            110px !important;
+
+        padding:
+            6px !important;
+
+    }
+
+
+    .level-number {
+
+        font-size:
+            13px !important;
+
+    }
+
+
+    .level-star {
+
+        font-size:
+            17px !important;
+
+    }
+
+
+    .rank-name {
+
+        font-size:
+            10px !important;
+
+    }
+
+
+    /* Rank tooltip mobile */
+
+    .rank-tooltip {
+
+        position:
+            fixed !important;
+
+        z-index:
+            500;
+
+        left:
+            12px !important;
+
+        right:
+            12px !important;
+
+        top:
+            90px !important;
+
+        width:
+            auto !important;
+
+        max-height:
+            60dvh;
+
+        overflow-y:
+            auto;
+
+    }
+
+
+    /* Social media */
+
+    .social-area {
+
+        top:
+            max(
+                7px,
+                env(safe-area-inset-top)
+            ) !important;
+
+        right:
+            7px !important;
+
+        gap:
+            4px !important;
+
+    }
+
+
+    .social-pill {
+
+        min-width:
+            0 !important;
+
+        max-width:
+            125px;
+
+        padding:
+            5px 8px !important;
+
+        border-width:
+            3px !important;
+
+        border-radius:
+            12px !important;
+
+    }
+
+
+    .social-icon {
+
+        font-size:
+            17px !important;
+
+    }
+
+
+    .social-pill small {
+
+        display:
+            none !important;
+
+    }
+
+
+    .social-pill strong {
+
+        font-size:
+            8px !important;
+
+    }
+
+
+    /* Main character */
+
+    .player-area {
+
+        width:
+            90vw !important;
+
+        top:
+            48% !important;
+
+    }
+
+
+    .home-character {
+
+        font-size:
+            clamp(
+                115px,
+                35vw,
+                160px
+            ) !important;
+
+    }
+
+
+    .home-character-name {
+
+        padding:
+            5px 15px !important;
+
+        font-size:
+            13px !important;
+
+    }
+
+
+    .speech-bubble {
+
+        max-width:
+            80vw;
+
+        padding:
+            6px 12px !important;
+
+        font-size:
+            8px !important;
+
+    }
+
+
+    /* Main game button */
+
+    .bottom-controls {
+
+        left:
+            10px !important;
+
+        right:
+            10px !important;
+
+        bottom:
+            calc(
+                12px +
+                env(safe-area-inset-bottom)
+            ) !important;
+
+        transform:
+            none !important;
+
+        width:
+            auto;
+
+        justify-content:
+            center;
+
+    }
+
+
+    .help-button {
+
+        flex:
+            0 0 50px;
+
+        width:
+            50px !important;
+
+        height:
+            50px !important;
+
+        border-width:
+            4px !important;
+
+        font-size:
+            23px !important;
+
+    }
+
+
+    .play-match-button {
+
+        min-width:
+            0 !important;
+
+        width:
+            min(
+                78vw,
+                330px
+            );
+
+        min-height:
+            52px;
+
+        padding:
+            10px !important;
+
+        border-width:
+            4px !important;
+
+        font-size:
+            13px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   BOMB BASH
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .boss-character {
+
+        font-size:
+            clamp(
+                100px,
+                32vw,
+                150px
+            ) !important;
+
+    }
+
+
+    .banana,
+    .bomb {
+
+        touch-action:
+            none !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MEMORY GAME
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .memory-grid,
+    .sequence-grid {
+
+        gap:
+            7px !important;
+
+    }
+
+
+    .memory-card,
+    .sequence-card {
+
+        min-width:
+            0 !important;
+
+    }
+
+
+    .memory-card span,
+    .sequence-card span {
+
+        font-size:
+            clamp(
+                33px,
+                11vw,
+                55px
+            ) !important;
+
+    }
+
+
+    .memory-buttons,
+    .choice-buttons {
+
+        gap:
+            7px !important;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+}
+
+
+/* =========================================================
+   SKY JUMP
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .game-title {
+
+        max-width:
+            58vw;
+
+        text-align:
+            center;
+
+        white-space:
+            normal;
+
+    }
+
+
+    .platform {
+
+        width:
+            120px !important;
+
+    }
+
+
+    .platform.left {
+
+        left:
+            calc(
+                25% - 60px
+            ) !important;
+
+    }
+
+
+    .platform.center {
+
+        left:
+            calc(
+                50% - 60px
+            ) !important;
+
+    }
+
+
+    .platform.right {
+
+        left:
+            calc(
+                75% - 60px
+            ) !important;
+
+    }
+
+
+    .control-guide {
+
+        bottom:
+            calc(
+                10px +
+                env(safe-area-inset-bottom)
+            ) !important;
+
+        padding:
+            6px 9px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MATH QUIZ
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .quiz-hud {
+
+        display:
+            grid !important;
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .quiz-area {
+
+        top:
+            57% !important;
+
+        width:
+            94vw !important;
+
+    }
+
+
+    .question-card {
+
+        padding:
+            17px 12px !important;
+
+        border-width:
+            5px !important;
+
+        border-radius:
+            22px !important;
+
+    }
+
+
+    .question-text {
+
+        font-size:
+            clamp(
+                38px,
+                12vw,
+                56px
+            ) !important;
+
+    }
+
+
+    .answer-grid {
+
+        gap:
+            8px !important;
+
+    }
+
+
+    .answer-button {
+
+        min-width:
+            0;
+
+        padding:
+            13px 5px !important;
+
+        border-width:
+            4px !important;
+
+        border-radius:
+            15px !important;
+
+        font-size:
+            20px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   ROCK PAPER SCISSORS
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .rps-hud {
+
+        display:
+            grid !important;
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+    }
+
+
+    .enemy-area {
+
+        top:
+            23% !important;
+
+    }
+
+
+    .enemy-character {
+
+        font-size:
+            85px !important;
+
+    }
+
+
+    .game-area {
+
+        width:
+            94vw !important;
+
+        bottom:
+            calc(
+                10px +
+                env(safe-area-inset-bottom)
+            ) !important;
+
+    }
+
+
+    .choice-grid {
+
+        gap:
+            7px !important;
+
+    }
+
+
+    .choice-button {
+
+        min-width:
+            0;
+
+        padding:
+            10px 4px !important;
+
+        border-width:
+            4px !important;
+
+    }
+
+
+    .choice-button span {
+
+        font-size:
+            clamp(
+                42px,
+                13vw,
+                58px
+            ) !important;
+
+    }
+
+
+    .choice-button strong {
+
+        font-size:
+            8px !important;
+
+    }
+
+
+    .reveal-choice {
+
+        font-size:
+            70px !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   RED LIGHT GREEN LIGHT
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .race-area {
+
+        left:
+            3% !important;
+
+        right:
+            3% !important;
+
+        bottom:
+            17% !important;
+
+    }
+
+
+    .runner-character {
+
+        font-size:
+            60px !important;
+
+    }
+
+
+    .input-hint {
+
+        left:
+            8px !important;
+
+        right:
+            8px !important;
+
+        bottom:
+            calc(
+                8px +
+                env(safe-area-inset-bottom)
+            ) !important;
+
+        width:
+            auto !important;
+
+        transform:
+            none !important;
+
+        justify-content:
+            center;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .light-message-text {
+
+        font-size:
+            clamp(
+                48px,
+                16vw,
+                80px
+            ) !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .character-grid {
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            ) !important;
+
+    }
+
+
+    .social-pill {
+
+        max-width:
+            105px;
+
+    }
+
+
+    .social-pill strong {
+
+        font-size:
+            7px !important;
+
+    }
+
+
+    .rank-card {
+
+        min-width:
+            95px !important;
+
+    }
+
+
+    .play-match-button {
+
+        font-size:
+            11px !important;
+
+    }
+
+}
