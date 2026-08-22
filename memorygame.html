@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Memory Mix</title>
+
+    <link
+        rel="stylesheet"
+        href="memorygame.css"
+    >
+
+</head>
+
+
+<body>
+
+<!-- AUDIO -->
+<script src="audio.js?v=3"></script>
+<script src="index.js"></script>
+    <div class="memory-bg">
+
+        <div class="memory-glow"></div>
+
+        <div class="decor d1">
+            ⚡
+        </div>
+
+        <div class="decor d2">
+            ☄️
+        </div>
+
+        <div class="decor d3">
+            🌈
+        </div>
+
+    </div>
+
+
+
+    <!-- HUD -->
+
+    <header class="hud">
+
+
+        <div class="player-card">
+
+            <span id="playerIcon">
+                🐶
+            </span>
+
+            <div>
+
+                <small>
+                    PLAYER
+                </small>
+
+                <strong id="playerName">
+                    Maximus
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="round-card">
+
+            <small>
+                ROUND
+            </small>
+
+            <strong id="roundText">
+                1 / 3
+            </strong>
+
+        </div>
+
+
+
+        <div
+            class="timer-card"
+            id="timerCard"
+        >
+
+            <small>
+                TIME
+            </small>
+
+            <strong id="timerText">
+                60
+            </strong>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- HEARTS -->
+
+    <div
+        class="lives"
+        id="lives"
+    >
+        ❤️ ❤️ ❤️
+    </div>
+
+
+
+    <main class="game-area">
+
+
+        <div class="objective">
+
+            <small>
+                MEMORY MIX
+            </small>
+
+            <h1 id="objectiveText">
+                MEMORIZE THE ORDER
+            </h1>
+
+        </div>
+
+
+
+        <!-- SEQUENCE -->
+
+        <div
+            class="sequence"
+            id="sequence"
+        ></div>
+
+
+
+        <!-- MEMORY COUNTDOWN -->
+
+        <div
+            class="memory-countdown"
+            id="memoryCountdown"
+        ></div>
+
+
+
+        <!-- PLAYER INPUT DISPLAY -->
+
+        <div
+            class="answer-row"
+            id="answerRow"
+        ></div>
+
+
+
+        <!-- CONTROLS -->
+
+        <div
+            class="symbol-controls"
+            id="symbolControls"
+        >
+
+            <button
+                type="button"
+                class="symbol-button"
+                data-symbol="⚡"
+            >
+                ⚡
+            </button>
+
+            <button
+                type="button"
+                class="symbol-button"
+                data-symbol="☄️"
+            >
+                ☄️
+            </button>
+
+            <button
+                type="button"
+                class="symbol-button"
+                data-symbol="💥"
+            >
+                💥
+            </button>
+
+            <button
+                type="button"
+                class="symbol-button"
+                data-symbol="🔥"
+            >
+                🔥
+            </button>
+
+            <button
+                type="button"
+                class="symbol-button"
+                data-symbol="🌈"
+            >
+                🌈
+            </button>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- INSTRUCTIONS -->
+
+    <div
+        class="overlay show"
+        id="instructionOverlay"
+    >
+
+        <div class="popup instruction-popup">
+
+            <div class="popup-icon">
+                🧠
+            </div>
+
+            <div class="difficulty">
+                🟡 BEGINNER ⭐️⭐️
+            </div>
+
+            <h1>
+                MEMORY MIX
+            </h1>
+
+            <p>
+                🧠 Hafalkan urutan 5 simbol.
+            </p>
+
+            <p>
+                👆 Tekan simbol dengan urutan yang sama.
+            </p>
+
+            <p>
+                ❤️ Kamu punya 3 nyawa untuk 3 ronde.
+            </p>
+
+            <button
+                type="button"
+                id="readyButton"
+                class="main-button"
+            >
+                READY!
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- START COUNTDOWN -->
+
+    <div
+        class="overlay"
+        id="startCountdownOverlay"
+    >
+
+        <div
+            class="big-countdown"
+            id="startCountdown"
+        >
+            3
+        </div>
+
+    </div>
+
+
+
+    <!-- ROUND POPUP -->
+
+    <div
+        class="overlay"
+        id="roundOverlay"
+    >
+
+        <div class="round-popup">
+
+            <small>
+                GREAT!
+            </small>
+
+            <h1 id="roundPopupText">
+                ROUND 2
+            </h1>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- WIN -->
+
+    <div
+        class="overlay"
+        id="winOverlay"
+    >
+
+        <div class="popup win-popup">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <h1>
+                YOU WON!
+            </h1>
+
+            <div class="reward">
+                ⭐ +1 STAR
+            </div>
+
+            <button
+                type="button"
+                class="main-button"
+                id="winButton"
+            >
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LOSE -->
+
+    <div
+        class="overlay"
+        id="loseOverlay"
+    >
+
+        <div class="popup lose-popup">
+
+            <div class="result-icon">
+                💔
+            </div>
+
+            <h1>
+                YOU LOST!
+            </h1>
+
+            <p id="loseReason">
+                No lives left!
+            </p>
+
+            <button
+                type="button"
+                class="main-button"
+                id="loseButton"
+            >
+                BACK TO HOME
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="memorygame.js"></script>
+
+
+</body>
+
+</html>

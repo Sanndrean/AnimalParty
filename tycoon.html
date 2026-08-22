@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Animal Party Tycoon</title>
+
+    <link
+        rel="stylesheet"
+        href="tycoon.css"
+    >
+
+</head>
+
+
+<body>
+<!-- AUDIO -->
+<script src="audio.js?v=3"></script>
+<script src="index.js"></script>
+
+    <div class="world-bg"></div>
+
+
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+
+        <div class="profile">
+
+            <div
+                class="profile-icon"
+                id="playerIcon"
+            >
+                🐶
+            </div>
+
+            <div>
+
+                <small>
+                    YOUR LIFE
+                </small>
+
+                <strong id="playerName">
+                    Maximus
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="day-box">
+
+            <small>
+                DAY
+            </small>
+
+            <strong id="dayText">
+                1
+            </strong>
+
+        </div>
+
+
+
+        <div class="money-box">
+
+            <small>
+                BALANCE
+            </small>
+
+            <strong id="moneyText">
+                $100
+            </strong>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+
+        <div class="stat">
+
+            <span>
+                ❤️
+            </span>
+
+            <div>
+
+                <small>
+                    HEALTH
+                </small>
+
+                <div class="stat-bar">
+
+                    <div
+                        class="stat-fill health"
+                        id="healthBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <span>
+                😊
+            </span>
+
+            <div>
+
+                <small>
+                    HAPPINESS
+                </small>
+
+                <div class="stat-bar">
+
+                    <div
+                        class="stat-fill happiness"
+                        id="happinessBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <span>
+                🧠
+            </span>
+
+            <div>
+
+                <small>
+                    INTELLIGENCE
+                </small>
+
+                <div class="stat-bar">
+
+                    <div
+                        class="stat-fill intelligence"
+                        id="intelligenceBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat">
+
+            <span>
+                ⚡
+            </span>
+
+            <div>
+
+                <small>
+                    ENERGY
+                </small>
+
+                <div class="stat-bar">
+
+                    <div
+                        class="stat-fill energy"
+                        id="energyBar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- MAIN LIFE CARD -->
+
+    <main class="life-content">
+
+
+        <section class="life-card">
+
+
+            <div class="life-card-top">
+
+                <div>
+
+                    <small>
+                        CURRENT LIFE
+                    </small>
+
+                    <h1 id="lifeTitle">
+                        A NEW BEGINNING
+                    </h1>
+
+                </div>
+
+
+                <div class="age-pill">
+
+                    AGE
+
+                    <strong id="ageText">
+                        18
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="life-character"
+                id="lifeCharacter"
+            >
+                🐶
+            </div>
+
+
+
+            <p id="lifeMessage">
+
+                Your new life begins with $100,
+                a tiny rented room, and absolutely no idea what you're doing.
+
+            </p>
+
+
+
+            <div class="current-info">
+
+
+                <div>
+
+                    <span>
+                        🏚️
+                    </span>
+
+                    <small>
+                        HOME
+                    </small>
+
+                    <strong id="homeText">
+                        Tiny Room
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        💼
+                    </span>
+
+                    <small>
+                        JOB
+                    </small>
+
+                    <strong id="jobText">
+                        Unemployed
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        ⭐
+                    </span>
+
+                    <small>
+                        REPUTATION
+                    </small>
+
+                    <strong id="reputationText">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ACTIONS -->
+
+        <section class="actions">
+
+
+            <button
+                class="action-card"
+                data-action="work"
+            >
+
+                <span>
+                    💼
+                </span>
+
+                <strong>
+                    WORK
+                </strong>
+
+                <small>
+                    Find jobs & make money
+                </small>
+
+            </button>
+
+
+
+            <button
+                class="action-card"
+                data-action="study"
+            >
+
+                <span>
+                    📚
+                </span>
+
+                <strong>
+                    STUDY
+                </strong>
+
+                <small>
+                    Improve intelligence
+                </small>
+
+            </button>
+
+
+
+            <button
+                class="action-card"
+                data-action="shop"
+            >
+
+                <span>
+                    🛍️
+                </span>
+
+                <strong>
+                    SHOP
+                </strong>
+
+                <small>
+                    Buy useful stuff
+                </small>
+
+            </button>
+
+
+
+            <button
+                class="action-card"
+                data-action="city"
+            >
+
+                <span>
+                    🏙️
+                </span>
+
+                <strong>
+                    CITY
+                </strong>
+
+                <small>
+                    Explore opportunities
+                </small>
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- END DAY -->
+
+    <button
+        type="button"
+        class="end-day"
+        id="endDayButton"
+    >
+        🌙 END DAY
+    </button>
+
+
+
+    <!-- ACTION POPUP -->
+
+    <div
+        class="overlay"
+        id="actionOverlay"
+    >
+
+        <div class="popup">
+
+            <div
+                class="popup-icon"
+                id="popupIcon"
+            >
+                💼
+            </div>
+
+            <small id="popupSmall">
+                WORK
+            </small>
+
+            <h1 id="popupTitle">
+                FIND A JOB
+            </h1>
+
+            <p id="popupText"></p>
+
+            <div
+                class="popup-options"
+                id="popupOptions"
+            ></div>
+
+            <button
+                class="close-button"
+                id="closePopup"
+            >
+                CLOSE
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EVENT -->
+
+    <div
+        class="overlay"
+        id="eventOverlay"
+    >
+
+        <div class="popup event-popup">
+
+            <div
+                class="popup-icon"
+                id="eventIcon"
+            >
+                🎲
+            </div>
+
+            <small>
+                RANDOM EVENT
+            </small>
+
+            <h1 id="eventTitle">
+                SOMETHING HAPPENED!
+            </h1>
+
+            <p id="eventText"></p>
+
+            <button
+                class="event-button"
+                id="eventButton"
+            >
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="tycoon.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Red Light Green Light
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="redlight.css"
+    >
+
+</head>
+
+
+<body>
+<!-- AUDIO -->
+<script src="audio.js?v=3"></script>
+<script src="index.js"></script>
+
+    <!-- ================================================
+         WORLD
+    ================================================= -->
+
+    <div class="world">
+
+        <div class="sky"></div>
+
+        <div class="sun"></div>
+
+        <div class="cloud c1">☁️</div>
+        <div class="cloud c2">☁️</div>
+
+        <div class="hill h1"></div>
+        <div class="hill h2"></div>
+
+        <div class="grass"></div>
+
+    </div>
+
+
+
+    <!-- ================================================
+         HUD
+    ================================================= -->
+
+    <header class="hud">
+
+
+        <div class="player-box">
+
+            <span id="hudPlayerIcon">
+                🐶
+            </span>
+
+            <div>
+
+                <small>
+                    PLAYER
+                </small>
+
+                <strong id="hudPlayerName">
+                    Maximus
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="distance-box">
+
+            <small>
+                DISTANCE
+            </small>
+
+            <strong id="distanceText">
+                0%
+            </strong>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ================================================
+         LIGHT STATUS
+    ================================================= -->
+
+    <div
+        class="light-status green"
+        id="lightStatus"
+    >
+
+        <div
+            class="light-icon"
+            id="lightIcon"
+        >
+            🟢
+        </div>
+
+        <h1 id="lightText">
+            GREEN LIGHT!
+        </h1>
+
+    </div>
+
+
+
+    <!-- ================================================
+         TRACK
+    ================================================= -->
+
+    <main class="game-field">
+
+
+        <div class="start-label">
+            START
+        </div>
+
+
+        <div class="track">
+
+
+            <div class="track-line"></div>
+
+
+            <div
+                class="player"
+                id="player"
+            >
+
+                <div
+                    class="player-icon"
+                    id="playerIcon"
+                >
+                    🐶
+                </div>
+
+                <div class="player-label">
+                    YOU
+                </div>
+
+            </div>
+
+
+
+            <div class="finish-zone">
+
+                <div class="finish-flag">
+                    🏁
+                </div>
+
+                <div class="finish-line"></div>
+
+                <div class="finish-label">
+                    FINISH
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ================================================
+         MOBILE CONTROL
+    ================================================= -->
+
+    <div class="mobile-control">
+
+        <button
+            type="button"
+            id="moveButton"
+            class="move-button"
+        >
+
+            👆 TAP TO MOVE
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ================================================
+         INSTRUCTION
+    ================================================= -->
+
+    <div
+        class="overlay show"
+        id="instructionOverlay"
+    >
+
+        <div class="popup instruction-popup">
+
+
+            <div class="popup-icon">
+                🚦
+            </div>
+
+
+            <div class="difficulty">
+                🟡 BEGINNER ⭐⭐
+            </div>
+
+
+            <h1>
+                RED LIGHT<br>
+                GREEN LIGHT
+            </h1>
+
+
+            <div class="instruction-item">
+                🟢 Green = spam SPACE / tap MOVE.
+            </div>
+
+
+            <div class="instruction-item">
+                🔴 Red = jangan bergerak sama sekali.
+            </div>
+
+
+            <div class="instruction-item">
+                🏁 Sentuh garis finish untuk menang.
+            </div>
+
+
+            <button
+                type="button"
+                class="main-button"
+                id="readyButton"
+            >
+                READY!
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================================
+         COUNTDOWN
+    ================================================= -->
+
+    <div
+        class="overlay"
+        id="countdownOverlay"
+    >
+
+        <div
+            class="countdown"
+            id="countdown"
+        >
+            3
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================================
+         WIN
+    ================================================= -->
+
+    <div
+        class="overlay"
+        id="winOverlay"
+    >
+
+        <div class="popup win-popup">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <h1>
+                YOU WON!
+            </h1>
+
+            <div class="reward">
+                ⭐ +1 STAR
+            </div>
+
+            <button
+                type="button"
+                class="main-button"
+                id="winButton"
+            >
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================================
+         LOSE
+    ================================================= -->
+
+    <div
+        class="overlay"
+        id="loseOverlay"
+    >
+
+        <div class="popup lose-popup">
+
+            <div class="result-icon">
+                ☠️
+            </div>
+
+            <h1>
+                YOU LOST!
+            </h1>
+
+            <p>
+                You moved during red light!
+            </p>
+
+            <button
+                type="button"
+                class="main-button"
+                id="loseButton"
+            >
+                BACK TO HOME
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="redlight.js"></script>
+
+<!-- BIG RED / GREEN ANNOUNCEMENT -->
+
+<div
+    class="light-announcement"
+    id="lightAnnouncement"
+>
+    GREEN LIGHT!
+</div>
+</body>
+
+</html>
