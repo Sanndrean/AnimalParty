@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Find The Strawberry
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="strawberry.css?v=30"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
+
+<div class="world-bg">
+
+    <div class="sky"></div>
+
+    <div class="cloud cloud-one"></div>
+    <div class="cloud cloud-two"></div>
+    <div class="cloud cloud-three"></div>
+
+    <div class="hill hill-one"></div>
+    <div class="hill hill-two"></div>
+    <div class="hill hill-three"></div>
+
+    <div class="grass"></div>
+
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+    <div class="particle p5"></div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HUD
+========================================================= -->
+
+<header class="game-hud">
+
+
+    <div class="game-title">
+
+        <small>
+            🍓 ANIMAL PARTY
+        </small>
+
+        <strong>
+            FIND THE STRAWBERRY
+        </strong>
+
+        <span>
+            BEGINNER
+        </span>
+
+    </div>
+
+
+    <div class="hud-spacer"></div>
+
+
+    <div class="hud-stat">
+
+        <small>
+            ROUND
+        </small>
+
+        <strong id="roundText">
+            1 / 3
+        </strong>
+
+    </div>
+
+
+    <div class="hud-stat">
+
+        <small>
+            LIVES
+        </small>
+
+        <strong id="livesText">
+            ❤️❤️
+        </strong>
+
+    </div>
+
+
+    <button
+        id="helpButton"
+        class="hud-button"
+        type="button"
+    >
+        ?
+    </button>
+
+
+</header>
+
+
+
+<!-- =========================================================
+     GAME
+========================================================= -->
+
+<main class="game-main">
+
+
+    <section class="round-heading">
+
+
+        <div
+            id="difficultyText"
+            class="difficulty-badge"
+        >
+            BEGINNER · ROUND 1
+        </div>
+
+
+        <h1 id="gameMessage">
+            WATCH THE STRAWBERRY!
+        </h1>
+
+
+        <p id="gameSubMessage">
+            Remember which cup hides it 🍓
+        </p>
+
+
+    </section>
+
+
+
+    <!-- TABLE -->
+
+    <section class="game-table">
+
+
+        <div class="table-shine"></div>
+
+
+        <div
+            id="cupsStage"
+            class="cups-stage"
+        >
+
+
+            <button
+                class="cup-wrapper"
+                data-cup-id="0"
+                type="button"
+            >
+
+                <div class="strawberry">
+                    🍓
+                </div>
+
+                <div class="cup">
+
+                    <div class="cup-gloss"></div>
+
+                    <div class="cup-rim"></div>
+
+                </div>
+
+                <div class="cup-shadow"></div>
+
+            </button>
+
+
+
+            <button
+                class="cup-wrapper"
+                data-cup-id="1"
+                type="button"
+            >
+
+                <div class="strawberry">
+                    🍓
+                </div>
+
+                <div class="cup">
+
+                    <div class="cup-gloss"></div>
+
+                    <div class="cup-rim"></div>
+
+                </div>
+
+                <div class="cup-shadow"></div>
+
+            </button>
+
+
+
+            <button
+                class="cup-wrapper"
+                data-cup-id="2"
+                type="button"
+            >
+
+                <div class="strawberry">
+                    🍓
+                </div>
+
+                <div class="cup">
+
+                    <div class="cup-gloss"></div>
+
+                    <div class="cup-rim"></div>
+
+                </div>
+
+                <div class="cup-shadow"></div>
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ROUND PROGRESS -->
+
+    <section class="round-progress">
+
+
+        <div
+            class="round-step active"
+            data-round="1"
+        >
+            1
+        </div>
+
+
+        <div class="round-line"></div>
+
+
+        <div
+            class="round-step"
+            data-round="2"
+        >
+            2
+        </div>
+
+
+        <div class="round-line"></div>
+
+
+        <div
+            class="round-step"
+            data-round="3"
+        >
+            3
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     INSTRUCTION
+========================================================= -->
+
+<div
+    id="instructionOverlay"
+    class="overlay hidden"
+>
+
+
+    <section class="instruction-card">
+
+
+        <button
+            id="closeInstructionButton"
+            class="modal-close"
+            type="button"
+        >
+            ✕
+        </button>
+
+
+        <div class="instruction-icons">
+
+            <span>
+                🍓
+            </span>
+
+            <span class="motion-icon">
+                🥤
+            </span>
+
+        </div>
+
+
+        <div class="beginner-badge">
+
+            <span class="badge-dot"></span>
+
+            BEGINNER
+
+            <span>
+                ⭐
+            </span>
+
+        </div>
+
+
+        <h1>
+            FIND THE STRAWBERRY
+        </h1>
+
+
+        <div class="instruction-lines">
+
+
+            <div class="instruction-line">
+
+                <span>👀</span>
+
+                <strong>
+                    Watch which cup hides the strawberry.
+                </strong>
+
+            </div>
+
+
+            <div class="instruction-line">
+
+                <span>🔀</span>
+
+                <strong>
+                    Follow the cups while they shuffle.
+                </strong>
+
+            </div>
+
+
+            <div class="instruction-line">
+
+                <span>👆</span>
+
+                <strong>
+                    Click the cup you think has the strawberry.
+                </strong>
+
+            </div>
+
+
+            <div class="instruction-line">
+
+                <span>❤️</span>
+
+                <strong>
+                    You have 2 lives.
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            id="startButton"
+            class="ready-button"
+            type="button"
+        >
+            READY!
+        </button>
+
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     RESULT
+========================================================= -->
+
+<div
+    id="resultOverlay"
+    class="overlay hidden"
+>
+
+
+    <section class="result-card">
+
+
+        <div
+            id="resultIcon"
+            class="result-icon"
+        >
+            🏆
+        </div>
+
+
+        <div
+            id="resultBadge"
+            class="result-badge"
+        >
+            GAME COMPLETE
+        </div>
+
+
+        <h1 id="resultTitle">
+            YOU WON!
+        </h1>
+
+
+        <div class="result-message-box">
+
+            <span id="resultMessageIcon">
+                ⭐
+            </span>
+
+            <strong id="resultText">
+                You found the strawberry!
+            </strong>
+
+        </div>
+
+
+        <div
+            id="rewardBox"
+            class="reward-panel"
+        >
+
+            <span>
+                ⭐
+            </span>
+
+            <strong>
+                +1 STAR
+            </strong>
+
+        </div>
+
+
+        <button
+            id="resultBackButton"
+            class="ready-button"
+            type="button"
+        >
+            BACK TO MINIGAMES
+        </button>
+
+
+    </section>
+
+
+</div>
+
+
+
+<script src="./audio.js?v=4"></script>
+
+<script src="./strawberry.js?v=30"></script>
+
+
+</body>
+
+</html>

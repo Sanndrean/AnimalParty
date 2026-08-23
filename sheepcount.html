@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Sheep Census
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="sheepcount.css?v=12"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="world-background">
+
+    <div class="sky"></div>
+
+    <div class="sun-glow"></div>
+
+    <div class="cloud cloud-one"></div>
+    <div class="cloud cloud-two"></div>
+    <div class="cloud cloud-three"></div>
+
+    <div class="rainbow"></div>
+
+    <div class="ocean"></div>
+
+    <div class="island island-one"></div>
+    <div class="island island-two"></div>
+
+    <div class="grass-field"></div>
+
+</div>
+
+
+
+<!-- FEEDBACK -->
+
+<div
+    id="feedbackFlash"
+    class="feedback-flash hidden"
+>
+
+    <div class="feedback-content">
+
+        <div
+            id="feedbackIcon"
+            class="feedback-icon"
+        >
+            ✅
+        </div>
+
+        <strong id="feedbackTitle">
+            CORRECT!
+        </strong>
+
+        <span id="feedbackAnswer">
+            There were 12 sheep!
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- HUD -->
+
+<header class="game-hud">
+
+
+    <div class="game-title">
+
+        <small>
+            🐑 ANIMAL PARTY
+        </small>
+
+        <strong>
+            SHEEP CENSUS
+        </strong>
+
+        <span>
+            ⚫ DEADLY
+        </span>
+
+    </div>
+
+
+    <div class="hud-spacer"></div>
+
+
+    <div class="hud-stat">
+
+        <small>
+            ROUND
+        </small>
+
+        <strong id="roundText">
+            1 / 5
+        </strong>
+
+    </div>
+
+
+    <div class="hud-stat">
+
+        <small>
+            LIVES
+        </small>
+
+        <strong id="livesText">
+            ❤️❤️
+        </strong>
+
+    </div>
+
+
+    <button
+        id="helpButton"
+        class="hud-button"
+        type="button"
+    >
+        ?
+    </button>
+
+
+</header>
+
+
+
+<!-- GAME -->
+
+<main class="game-main">
+
+
+    <section class="question-area">
+
+
+        <div
+            id="roundBadge"
+            class="difficulty-badge"
+        >
+            ⚫ DEADLY · ROUND 1
+        </div>
+
+
+        <h1 id="mainQuestion">
+            BERAPAKAH DOMBA YANG LEWAT?
+        </h1>
+
+
+        <p id="subMessage">
+            Count only 🐑!
+        </p>
+
+
+    </section>
+
+
+
+    <section
+        id="sheepField"
+        class="sheep-field"
+    >
+
+
+        <div class="lane lane-one"></div>
+        <div class="lane lane-two"></div>
+        <div class="lane lane-three"></div>
+        <div class="lane lane-four"></div>
+
+
+        <div
+            id="animalLayer"
+            class="animal-layer"
+        ></div>
+
+
+
+        <div
+            id="roundReminder"
+            class="round-reminder hidden"
+        >
+
+            <small id="reminderRound">
+                ROUND 1
+            </small>
+
+            <strong>
+                BERAPAKAH DOMBA
+                <br>
+                YANG LEWAT?
+            </strong>
+
+            <span>
+                COUNT 🐑 ONLY!
+            </span>
+
+        </div>
+
+
+
+        <div
+            id="answerPanel"
+            class="answer-panel hidden"
+        >
+
+
+            <small class="answer-label">
+                HOW MANY SHEEP?
+            </small>
+
+
+            <div class="answer-timer">
+
+
+                <div class="timer-top">
+
+                    <span>
+                        ⏱ TIME LEFT
+                    </span>
+
+                    <strong id="timerText">
+                        20
+                    </strong>
+
+                </div>
+
+
+                <div class="timer-track">
+
+                    <div
+                        id="timerBar"
+                        class="timer-bar"
+                    ></div>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                id="increaseButton"
+                class="number-button"
+                type="button"
+            >
+                ▲
+            </button>
+
+
+            <input
+                id="guessNumber"
+                class="guess-number"
+                type="number"
+                min="2"
+                max="54"
+                value="2"
+                inputmode="numeric"
+                autocomplete="off"
+            >
+
+
+            <button
+                id="decreaseButton"
+                class="number-button"
+                type="button"
+            >
+                ▼
+            </button>
+
+
+            <div class="number-range">
+
+                CLICK NUMBER TO TYPE
+
+                <strong>
+                    MIN 2 · MAX 54
+                </strong>
+
+            </div>
+
+
+            <button
+                id="submitButton"
+                class="submit-button"
+                type="button"
+            >
+                LOCK ANSWER
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- PROGRESS -->
+
+    <section class="round-progress">
+
+        <div class="round-step active">
+            1
+        </div>
+
+        <div class="round-line"></div>
+
+        <div class="round-step">
+            2
+        </div>
+
+        <div class="round-line"></div>
+
+        <div class="round-step">
+            3
+        </div>
+
+        <div class="round-line"></div>
+
+        <div class="round-step">
+            4
+        </div>
+
+        <div class="round-line"></div>
+
+        <div class="round-step">
+            5
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- INSTRUCTION -->
+
+<div
+    id="instructionOverlay"
+    class="overlay hidden"
+>
+
+    <section class="instruction-card">
+
+
+        <button
+            id="closeInstructionButton"
+            class="modal-close"
+            type="button"
+        >
+            ✕
+        </button>
+
+
+        <div class="instruction-icons">
+            🐑 💨
+        </div>
+
+
+        <div class="deadly-badge">
+            ⚫ DEADLY ⭐⭐⭐⭐⭐
+        </div>
+
+
+        <h1>
+            SHEEP CENSUS
+        </h1>
+
+
+        <div class="instruction-lines">
+
+
+            <div class="instruction-line">
+                <span>👀</span>
+                <strong>Hitung hanya domba 🐑 yang lewat.</strong>
+            </div>
+
+
+            <div class="instruction-line">
+                <span>🐘</span>
+                <strong>Abaikan 🐘 dan 🐇 karena cuma pengacau.</strong>
+            </div>
+
+
+            <div class="instruction-line">
+                <span>🔢</span>
+                <strong>Gunakan ▲ ▼ atau ketik langsung angka 2–54.</strong>
+            </div>
+
+
+            <div class="instruction-line">
+                <span>⏱</span>
+                <strong>Kamu punya 20 detik untuk memilih jawaban.</strong>
+            </div>
+
+
+            <div class="instruction-line">
+                <span>❤️</span>
+                <strong>Kamu punya 2 nyawa untuk 5 ronde.</strong>
+            </div>
+
+
+        </div>
+
+
+        <button
+            id="readyButton"
+            class="ready-button"
+            type="button"
+        >
+            READY!
+        </button>
+
+
+    </section>
+
+</div>
+
+
+
+<!-- RESULT -->
+
+<div
+    id="resultOverlay"
+    class="overlay hidden"
+>
+
+    <section class="result-card">
+
+
+        <div
+            id="resultIcon"
+            class="result-icon"
+        >
+            🏆
+        </div>
+
+
+        <div
+            id="resultBadge"
+            class="result-badge"
+        >
+            DEADLY COMPLETE
+        </div>
+
+
+        <h1 id="resultTitle">
+            YOU WON!
+        </h1>
+
+
+        <div class="result-message-box">
+
+            <span id="resultMessageIcon">
+                🐑
+            </span>
+
+            <strong id="resultText">
+                Amazing counting!
+            </strong>
+
+        </div>
+
+
+        <div
+            id="rewardBox"
+            class="reward-panel"
+        >
+            ⭐ +1 STAR
+        </div>
+
+
+        <button
+            id="resultBackButton"
+            class="ready-button"
+            type="button"
+        >
+            BACK TO MINIGAMES
+        </button>
+
+
+    </section>
+
+</div>
+
+
+
+<script src="./audio.js?v=4"></script>
+
+<script src="./sheepcount.js?v=12"></script>
+
+
+</body>
+
+</html>
