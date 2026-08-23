@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Animal Party - Kitchen Rush
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="cookinggame.css?v=3"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     GAME WORLD
+===================================================== -->
+
+<main class="game-world">
+
+
+    <!-- =================================================
+         RESTAURANT BACKGROUND
+    ================================================== -->
+
+    <div class="restaurant-wall">
+
+
+        <div class="window">
+
+            <div class="outside-sky"></div>
+
+            <div class="window-line vertical"></div>
+
+            <div class="window-line horizontal"></div>
+
+        </div>
+
+
+        <div class="restaurant-sign">
+
+            <span>
+                🍴
+            </span>
+
+            <strong>
+                ANDREA'S KITCHEN
+            </strong>
+
+            <small>
+                FRESH • FAST • FUN
+            </small>
+
+        </div>
+
+
+        <div class="menu-board">
+
+            <strong>
+                TODAY'S MENU
+            </strong>
+
+            <span>
+                🍔 BURGER
+            </span>
+
+            <span>
+                🐟 FISH PLATE
+            </span>
+
+            <span>
+                🥗 SALAD
+            </span>
+
+            <span>
+                🍳 BREAKFAST
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         CUSTOMER
+    ================================================== -->
+
+    <section
+        class="customer-zone"
+        id="customerZone"
+    >
+
+
+        <!-- ORDER -->
+
+        <div class="order-card">
+
+            <div class="order-top">
+                🧾 ORDER
+            </div>
+
+
+            <div
+                class="order-icons"
+                id="orderIcons"
+            >
+                🍞 🍖 🧀 🥬
+            </div>
+
+
+            <strong
+                id="orderName"
+                class="order-name"
+            >
+                CHEESE BURGER
+            </strong>
+
+        </div>
+
+
+
+        <!-- CUSTOMER -->
+
+        <div
+            class="customer"
+            id="customer"
+        >
+            🐼
+        </div>
+
+
+        <div
+            class="customer-name"
+            id="customerName"
+        >
+            PANDA
+        </div>
+
+
+
+        <!-- PATIENCE -->
+
+        <div class="patience-panel">
+
+            <div class="patience-info">
+
+                <span>
+                    😊 PATIENCE
+                </span>
+
+                <strong id="customerTimerText">
+                    15s
+                </strong>
+
+            </div>
+
+
+            <div class="patience-bar">
+
+                <div
+                    class="patience-fill"
+                    id="patienceFill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         COUNTER
+    ================================================== -->
+
+    <section class="counter">
+
+
+        <div class="counter-edge"></div>
+
+
+        <div class="counter-title">
+            👨‍🍳 YOUR KITCHEN
+        </div>
+
+
+
+        <!-- =============================================
+             STOVES
+        ============================================== -->
+
+        <section class="stove-section">
+
+
+            <div class="section-label">
+                🔥 COOKING STATION
+            </div>
+
+
+            <div class="stoves">
+
+
+                <!-- STOVE 1 -->
+
+                <button
+                    type="button"
+                    class="stove"
+                    id="stove1"
+                    data-stove="0"
+                >
+
+                    <div class="stove-number">
+                        STOVE 1
+                    </div>
+
+
+                    <div class="burner">
+
+                        <div
+                            class="stove-food"
+                            id="stoveFood1"
+                        ></div>
+
+
+                        <div
+                            class="steam"
+                            id="steam1"
+                        >
+                            ♨
+                        </div>
+
+                    </div>
+
+
+                    <div class="cook-bar">
+
+                        <div
+                            class="cook-fill"
+                            id="cookFill1"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        class="stove-status"
+                        id="stoveStatus1"
+                    >
+                        EMPTY
+                    </div>
+
+                </button>
+
+
+
+                <!-- STOVE 2 -->
+
+                <button
+                    type="button"
+                    class="stove"
+                    id="stove2"
+                    data-stove="1"
+                >
+
+                    <div class="stove-number">
+                        STOVE 2
+                    </div>
+
+
+                    <div class="burner">
+
+                        <div
+                            class="stove-food"
+                            id="stoveFood2"
+                        ></div>
+
+
+                        <div
+                            class="steam"
+                            id="steam2"
+                        >
+                            ♨
+                        </div>
+
+                    </div>
+
+
+                    <div class="cook-bar">
+
+                        <div
+                            class="cook-fill"
+                            id="cookFill2"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        class="stove-status"
+                        id="stoveStatus2"
+                    >
+                        EMPTY
+                    </div>
+
+                </button>
+
+
+            </div>
+
+
+            <div class="stove-hint">
+                Tap cooked food to move it to your plate
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =============================================
+             PLATE
+        ============================================== -->
+
+        <section class="plate-section">
+
+
+            <div class="section-label">
+                🍽️ YOUR PLATE
+            </div>
+
+
+            <div
+                class="plate"
+                id="plate"
+            >
+
+                <div
+                    class="plate-food"
+                    id="plateFood"
+                ></div>
+
+            </div>
+
+
+
+            <div
+                class="plate-status"
+                id="plateStatus"
+            >
+                ADD INGREDIENTS
+            </div>
+
+
+
+            <!-- TRASH -->
+
+            <button
+                type="button"
+                class="trash-button"
+                id="trashButton"
+            >
+
+                <span>
+                    🗑️
+                </span>
+
+                <strong>
+                    CLEAR PLATE
+                </strong>
+
+            </button>
+
+
+
+            <div class="serve-hint">
+                DRAG PLATE TO CUSTOMER
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =============================================
+             INGREDIENTS
+        ============================================== -->
+
+        <section class="ingredient-section">
+
+
+            <div class="section-label">
+                🧺 INGREDIENTS
+            </div>
+
+
+            <div class="ingredient-grid">
+
+
+                <button
+                    type="button"
+                    class="ingredient"
+                    data-ingredient="bun"
+                >
+
+                    <span>
+                        🍞
+                    </span>
+
+                    <strong>
+                        BUN
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="ingredient raw"
+                    data-ingredient="patty"
+                >
+
+                    <span>
+                        🥩
+                    </span>
+
+                    <strong>
+                        PATTY
+                    </strong>
+
+                    <b>
+                        COOK
+                    </b>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="ingredient"
+                    data-ingredient="lettuce"
+                >
+
+                    <span>
+                        🥬
+                    </span>
+
+                    <strong>
+                        LETTUCE
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="ingredient"
+                    data-ingredient="tomato"
+                >
+
+                    <span>
+                        🍅
+                    </span>
+
+                    <strong>
+                        TOMATO
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="ingredient"
+                    data-ingredient="cheese"
+                >
+
+                    <span>
+                        🧀
+                    </span>
+
+                    <strong>
+                        CHEESE
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="ingredient raw"
+                    data-ingredient="fish"
+                >
+
+                    <span>
+                        🐟
+                    </span>
+
+                    <strong>
+                        FISH
+                    </strong>
+
+                    <b>
+                        COOK
+                    </b>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="ingredient"
+                    data-ingredient="egg"
+                >
+
+                    <span>
+                        🍳
+                    </span>
+
+                    <strong>
+                        EGG
+                    </strong>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="ingredient"
+                    data-ingredient="avocado"
+                >
+
+                    <span>
+                        🥑
+                    </span>
+
+                    <strong>
+                        AVOCADO
+                    </strong>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     HUD
+===================================================== -->
+
+<header class="hud">
+
+
+    <div class="hud-card time-card">
+
+        <span class="hud-icon">
+            ⏱️
+        </span>
+
+
+        <div>
+
+            <small>
+                TIME LEFT
+            </small>
+
+            <strong id="gameTimer">
+                60
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="game-header">
+
+        <div class="difficulty">
+            🟠 HARD ⭐⭐⭐
+        </div>
+
+        <strong>
+            KITCHEN RUSH
+        </strong>
+
+    </div>
+
+
+
+    <div class="hud-card served-card">
+
+        <span class="hud-icon">
+            🍽️
+        </span>
+
+
+        <div>
+
+            <small>
+                SERVED
+            </small>
+
+            <strong>
+
+                <span id="servedCount">
+                    0
+                </span>
+
+                / 5
+
+            </strong>
+
+        </div>
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =====================================================
+     MESSAGE
+===================================================== -->
+
+<div
+    class="game-message"
+    id="gameMessage"
+>
+    NEW ORDER!
+</div>
+
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<div
+    class="countdown-overlay"
+    id="countdownOverlay"
+>
+
+
+    <div
+        class="countdown-number"
+        id="countdownNumber"
+    >
+        3
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     INSTRUCTIONS
+===================================================== -->
+
+<div
+    class="overlay show"
+    id="instructionOverlay"
+>
+
+
+    <section class="instruction-card">
+
+
+        <div class="instruction-icons">
+            👨‍🍳 🔥 🍽️
+        </div>
+
+
+        <div class="instruction-difficulty">
+            🟠 HARD ⭐⭐⭐
+        </div>
+
+
+        <h1>
+            KITCHEN RUSH
+        </h1>
+
+
+
+        <div class="instruction-row">
+
+            <span>
+                🧾
+            </span>
+
+            <p>
+                Check the customer's order.
+            </p>
+
+        </div>
+
+
+
+        <div class="instruction-row">
+
+            <span>
+                🔥
+            </span>
+
+            <p>
+                Raw meat and fish must be cooked on one of the 2 stoves.
+            </p>
+
+        </div>
+
+
+
+        <div class="instruction-row">
+
+            <span>
+                👆
+            </span>
+
+            <p>
+                Tap a stove when the food says READY to move it to the plate.
+            </p>
+
+        </div>
+
+
+
+        <div class="instruction-row">
+
+            <span>
+                🗑️
+            </span>
+
+            <p>
+                Made a mistake? Use CLEAR PLATE to throw the food away.
+            </p>
+
+        </div>
+
+
+
+        <div class="instruction-row">
+
+            <span>
+                🍽️
+            </span>
+
+            <p>
+                Complete the order, then drag the plate to the customer.
+            </p>
+
+        </div>
+
+
+
+        <div class="instruction-row">
+
+            <span>
+                ⏱️
+            </span>
+
+            <p>
+                Serve 5 customers before the 60 second kitchen timer ends!
+            </p>
+
+        </div>
+
+
+
+        <button
+            type="button"
+            id="readyButton"
+            class="ready-button"
+        >
+            READY!
+        </button>
+
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<div
+    class="overlay"
+    id="resultOverlay"
+>
+
+
+    <section
+        class="result-card"
+        id="resultCard"
+    >
+
+
+        <div
+            class="result-icon"
+            id="resultIcon"
+        >
+            ⭐
+        </div>
+
+
+        <div
+            class="result-label"
+            id="resultLabel"
+        >
+            KITCHEN COMPLETE
+        </div>
+
+
+        <h1 id="resultTitle">
+            YOU WON!
+        </h1>
+
+
+        <p id="resultDescription">
+            You served 5 customers!
+        </p>
+
+
+        <div
+            class="star-reward"
+            id="starReward"
+        >
+            ⭐ +1 STAR
+        </div>
+
+
+        <button
+            type="button"
+            id="resultButton"
+            class="result-button"
+        >
+            CONTINUE
+        </button>
+
+
+    </section>
+
+
+</div>
+
+
+
+<script src="./audio.js?v=4"></script>
+
+<script src="cookinggame.js?v=3"></script>
+
+
+</body>
+
+</html>

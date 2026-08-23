@@ -1,0 +1,2510 @@
+@import url(
+    "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap"
+);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    overflow: hidden;
+
+    font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+    background: #e6bd79;
+
+    user-select: none;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   WORLD
+===================================================== */
+
+.game-world {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            #f7dfaa 0%,
+            #edc982 54%,
+            #a7603c 54%,
+            #77422d 100%
+        );
+}
+
+
+/* =====================================================
+   RESTAURANT WALL
+===================================================== */
+
+.restaurant-wall {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 56%;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7e5b7,
+            #e9c883
+        );
+
+    border-bottom:
+        12px solid
+        #71442e;
+}
+
+
+.restaurant-wall::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 80px;
+
+    opacity: .25;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #c9774a 0 85px,
+            #a75d3e 85px 90px
+        );
+}
+
+
+/* =====================================================
+   WINDOW
+===================================================== */
+
+.window {
+    position: absolute;
+
+    left: 4%;
+    top: 18%;
+
+    width: 250px;
+    height: 200px;
+
+    overflow: hidden;
+
+    border:
+        12px solid
+        #704731;
+
+    border-radius: 9px;
+
+    background:
+        #75d0f2;
+
+    box-shadow:
+        0 9px 0
+        rgba(79,46,29,.16);
+}
+
+
+.outside-sky {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            #5bc6f4 0%,
+            #c9f3ff 65%,
+            #69c95f 66%,
+            #46a84c 100%
+        );
+}
+
+
+.outside-sky::before {
+    content: "☁️";
+
+    position: absolute;
+
+    left: 15px;
+    top: 15px;
+
+    font-size: 50px;
+}
+
+
+.outside-sky::after {
+    content: "☁️";
+
+    position: absolute;
+
+    right: 10px;
+    top: 70px;
+
+    font-size: 40px;
+}
+
+
+.window-line {
+    position: absolute;
+
+    z-index: 3;
+
+    background:
+        #fff0cb;
+}
+
+
+.window-line.vertical {
+    left: 50%;
+    top: 0;
+
+    width: 9px;
+    height: 100%;
+}
+
+
+.window-line.horizontal {
+    left: 0;
+    top: 50%;
+
+    width: 100%;
+    height: 9px;
+}
+
+
+/* =====================================================
+   SIGN
+===================================================== */
+
+.restaurant-sign {
+    position: absolute;
+
+    left: 50%;
+    top: 9%;
+
+    transform:
+        translateX(-50%)
+        rotate(-1deg);
+
+    min-width: 250px;
+
+    padding:
+        10px 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    border:
+        7px solid
+        #72452f;
+
+    border-radius: 16px;
+
+    background:
+        #fff0ad;
+
+    color:
+        #69422e;
+
+    box-shadow:
+        0 8px 0
+        rgba(87,50,31,.16);
+}
+
+
+.restaurant-sign span {
+    font-size: 28px;
+}
+
+
+.restaurant-sign strong {
+    font-size: 18px;
+    line-height: 1;
+}
+
+
+.restaurant-sign small {
+    margin-top: 3px;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu-board {
+    position: absolute;
+
+    right: 4%;
+    top: 11%;
+
+    width: 190px;
+
+    padding:
+        14px 17px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    border:
+        8px solid
+        #69442e;
+
+    border-radius: 8px;
+
+    background:
+        #315443;
+
+    color:
+        #fff7d0;
+
+    box-shadow:
+        0 8px 0
+        rgba(73,44,28,.16);
+
+    transform:
+        rotate(1.5deg);
+}
+
+
+.menu-board strong {
+    margin-bottom: 4px;
+
+    color:
+        #ffe164;
+
+    font-size: 11px;
+}
+
+
+.menu-board span {
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   CUSTOMER
+===================================================== */
+
+.customer-zone {
+    position: absolute;
+
+    z-index: 30;
+
+    left: 50%;
+    top: 21%;
+
+    width: 300px;
+    height: 340px;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        opacity .2s ease,
+        transform .25s ease;
+}
+
+
+.customer {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform:
+        translateX(-50%);
+
+    font-size:
+        clamp(
+            135px,
+            14vw,
+            190px
+        );
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 13px 3px
+            rgba(68,40,25,.18)
+        );
+
+    animation:
+        customerIdle
+        1.15s ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes customerIdle {
+
+    from {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            translateY(-7px);
+    }
+
+}
+
+
+.customer-name {
+    position: absolute;
+
+    z-index: 7;
+
+    left: 50%;
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        5px 14px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        linear-gradient(
+            #5aaee2,
+            #4e73bd
+        );
+
+    box-shadow:
+        0 4px 0
+        #355993;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   ORDER
+===================================================== */
+
+.order-card {
+    position: absolute;
+
+    z-index: 8;
+
+    left: -150px;
+    top: 35px;
+
+    width: 165px;
+
+    padding:
+        11px;
+
+    border:
+        5px solid
+        white;
+
+    border-radius:
+        20px 20px 5px 20px;
+
+    background:
+        linear-gradient(
+            #64c9ed,
+            #4c7cca
+        );
+
+    box-shadow:
+        0 6px 0
+        #365b96;
+
+    text-align: center;
+}
+
+
+.order-top {
+    color:
+        #ffe260;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.order-icons {
+    margin:
+        4px 0;
+
+    font-size: 25px;
+
+    letter-spacing: 2px;
+}
+
+
+.order-name {
+    display: block;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   PATIENCE
+===================================================== */
+
+.patience-panel {
+    position: absolute;
+
+    z-index: 8;
+
+    right: -140px;
+    top: 45px;
+
+    width: 155px;
+
+    padding:
+        9px 10px;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            #5c8fd2,
+            #466eb4
+        );
+
+    box-shadow:
+        0 5px 0
+        #34558e;
+}
+
+
+.patience-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 8px;
+
+    font-weight: 800;
+}
+
+
+.patience-info strong {
+    color:
+        #ffe35c;
+
+    font-size: 10px;
+}
+
+
+.patience-bar {
+    height: 12px;
+
+    margin-top: 5px;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        rgba(0,0,0,.15);
+}
+
+
+.patience-fill {
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        #54dc78;
+
+    transition:
+        width .1s linear,
+        background .2s ease;
+}
+
+
+/* =====================================================
+   COUNTER
+===================================================== */
+
+.counter {
+    position: absolute;
+
+    z-index: 100;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 46%;
+
+    border-top:
+        13px solid
+        #f7dda3;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d9a866,
+            #bd814d
+        );
+
+    box-shadow:
+        0 -10px 25px
+        rgba(71,42,26,.16);
+}
+
+
+.counter::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .14;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 130px,
+            #6d422b 131px 134px
+        );
+}
+
+
+.counter-edge {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: -13px;
+
+    height: 7px;
+
+    background:
+        rgba(255,255,255,.4);
+}
+
+
+.counter-title {
+    position: absolute;
+
+    left: 50%;
+    top: -27px;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        5px 15px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        #7c5138;
+
+    box-shadow:
+        0 4px 0
+        #543624;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.section-label {
+    margin-bottom: 7px;
+
+    color:
+        #65422f;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .8px;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   STOVES
+===================================================== */
+
+.stove-section {
+    position: absolute;
+
+    z-index: 4;
+
+    left: 2%;
+    top: 7%;
+
+    width: 34%;
+}
+
+
+.stoves {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.stove {
+    position: relative;
+
+    width: 145px;
+    height: 165px;
+
+    padding:
+        7px;
+
+    border:
+        5px solid
+        #eef2f5;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            #64666c,
+            #3b3d43
+        );
+
+    box-shadow:
+        0 7px 0
+        #2c2d31;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform .12s ease;
+}
+
+
+.stove:hover {
+    transform:
+        translateY(-3px);
+}
+
+
+.stove.ready {
+    border-color:
+        #6ee486;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(87,222,117,.35),
+        0 7px 0
+        #2c2d31;
+
+    animation:
+        stoveReady
+        .65s ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes stoveReady {
+
+    to {
+        transform:
+            translateY(-3px)
+            scale(1.02);
+    }
+
+}
+
+
+.stove-number {
+    margin-bottom: 5px;
+
+    color:
+        #ffe167;
+
+    font-size: 8px;
+
+    font-weight: 800;
+}
+
+
+.burner {
+    position: relative;
+
+    width: 88px;
+    height: 88px;
+
+    margin:
+        0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        8px solid
+        #202126;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #555861 0%,
+            #292a30 68%
+        );
+
+    box-shadow:
+        inset 0 0 0 4px
+        #72747c;
+}
+
+
+.stove-food {
+    position: relative;
+
+    z-index: 3;
+
+    font-size: 38px;
+}
+
+
+.steam {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 50%;
+    top: -28px;
+
+    transform:
+        translateX(-50%);
+
+    color: white;
+
+    font-size: 27px;
+
+    opacity: 0;
+}
+
+
+.stove.cooking .steam {
+    animation:
+        steamMove
+        .8s ease-in-out
+        infinite;
+}
+
+
+@keyframes steamMove {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,8px)
+            scale(.8);
+    }
+
+    50% {
+        opacity: .9;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-8px)
+            scale(1.2);
+    }
+
+}
+
+
+.cook-bar {
+    width: 90%;
+
+    height: 9px;
+
+    margin:
+        7px auto 0;
+
+    overflow: hidden;
+
+    border:
+        2px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        #25262b;
+}
+
+
+.cook-fill {
+    width: 0;
+    height: 100%;
+
+    background:
+        #ffad33;
+}
+
+
+.stove-status {
+    margin-top: 5px;
+
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+
+.stove.ready
+.stove-status {
+    color:
+        #75ef8d;
+}
+
+
+.stove-hint {
+    margin-top: 7px;
+
+    color:
+        #674431;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   PLATE
+===================================================== */
+
+.plate-section {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 50%;
+    top: 7%;
+
+    width: 25%;
+
+    transform:
+        translateX(-50%);
+
+    text-align: center;
+}
+
+
+.plate {
+    position: relative;
+
+    width: 185px;
+    height: 125px;
+
+    margin:
+        8px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        13px solid
+        #fafbfc;
+
+    border-radius: 50%;
+
+    background:
+        #dce5eb;
+
+    box-shadow:
+        inset 0 0 0 4px
+        #b5c2ca,
+        0 8px 0
+        rgba(72,45,29,.16);
+
+    cursor: grab;
+
+    touch-action: none;
+
+    transition:
+        .15s ease;
+}
+
+
+.plate.ready {
+    box-shadow:
+        inset 0 0 0 4px
+        #b5c2ca,
+        0 0 0 6px
+        #57d97a,
+        0 8px 0
+        rgba(72,45,29,.16);
+
+    animation:
+        plateReady
+        .75s ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes plateReady {
+
+    to {
+        transform:
+            scale(1.04);
+    }
+
+}
+
+
+.plate.dragging {
+    position: fixed;
+
+    z-index: 9000;
+
+    margin: 0;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.8);
+
+    pointer-events: none;
+
+    animation: none;
+}
+
+
+.plate-food {
+    max-width: 140px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 1px;
+
+    font-size: 30px;
+}
+
+
+.plate-status {
+    display: inline-block;
+
+    min-width: 135px;
+
+    padding:
+        5px 11px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        #6e4933;
+
+    box-shadow:
+        0 3px 0
+        #4d3022;
+
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+
+.trash-button {
+    width: 150px;
+
+    min-height: 38px;
+
+    margin:
+        8px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            #eb626c,
+            #c23b49
+        );
+
+    color: white;
+
+    box-shadow:
+        0 4px 0
+        #8d2b35;
+
+    font-size: 7px;
+
+    cursor: pointer;
+}
+
+
+.trash-button span {
+    font-size: 15px;
+}
+
+
+.trash-button strong {
+    font-size: 7px;
+}
+
+
+.serve-hint {
+    margin-top: 5px;
+
+    color:
+        #6a4631;
+
+    font-size: 6px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   INGREDIENTS
+===================================================== */
+
+.ingredient-section {
+    position: absolute;
+
+    z-index: 4;
+
+    right: 2%;
+    top: 7%;
+
+    width: 33%;
+}
+
+
+.ingredient-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 7px;
+}
+
+
+.ingredient {
+    position: relative;
+
+    min-height: 76px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            #61c8eb,
+            #4e7bc5
+        );
+
+    box-shadow:
+        0 5px 0
+        #385b95;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform .1s ease;
+}
+
+
+.ingredient:hover {
+    transform:
+        translateY(-3px);
+}
+
+
+.ingredient span {
+    font-size: 30px;
+}
+
+
+.ingredient strong {
+    font-size: 7px;
+}
+
+
+.ingredient b {
+    position: absolute;
+
+    right: 3px;
+    top: 3px;
+
+    padding:
+        2px 5px;
+
+    border-radius: 99px;
+
+    background:
+        #ed623d;
+
+    box-shadow:
+        0 2px 0
+        #a83d27;
+
+    font-size: 5px;
+}
+
+
+/* =====================================================
+   HUD
+===================================================== */
+
+.hud {
+    position: fixed;
+
+    z-index: 1000;
+
+    left: 17px;
+    right: 17px;
+
+    top:
+        max(
+            12px,
+            env(safe-area-inset-top)
+        );
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+
+.hud-card {
+    min-width: 145px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px 13px;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            #60c9ed,
+            #4c7bc5
+        );
+
+    box-shadow:
+        0 6px 0
+        #355a95;
+}
+
+
+.hud-icon {
+    font-size: 29px;
+}
+
+
+.hud-card div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.hud-card small {
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+
+.hud-card strong {
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+
+.served-card {
+    background:
+        linear-gradient(
+            #55d58c,
+            #339b68
+        );
+
+    box-shadow:
+        0 6px 0
+        #24734c;
+}
+
+
+.game-header {
+    padding:
+        7px 20px;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            #f7a53d,
+            #e36b2d
+        );
+
+    box-shadow:
+        0 6px 0
+        #a94b22;
+
+    text-align: center;
+}
+
+
+.game-header .difficulty {
+    color:
+        #fff08b;
+
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+
+.game-header strong {
+    display: block;
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.game-message {
+    position: fixed;
+
+    z-index: 4000;
+
+    left: 50%;
+    top: 18%;
+
+    transform:
+        translate(-50%,-15px)
+        scale(.8);
+
+    padding:
+        10px 22px;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        #f29a32;
+
+    box-shadow:
+        0 5px 0
+        #a9521e;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+.game-message.show {
+    animation:
+        messagePop
+        1.05s ease;
+}
+
+
+.game-message.good {
+    background:
+        #46c879;
+
+    box-shadow:
+        0 5px 0
+        #28884e;
+}
+
+
+.game-message.bad {
+    background:
+        #e94e5e;
+
+    box-shadow:
+        0 5px 0
+        #a7323e;
+}
+
+
+@keyframes messagePop {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-15px)
+            scale(.7);
+    }
+
+    18%,
+    75% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,0)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%,-8px)
+            scale(.9);
+    }
+
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-overlay {
+    position: fixed;
+
+    z-index: 15000;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(36,39,54,.68);
+
+    backdrop-filter:
+        blur(5px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+.countdown-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.countdown-number {
+    color: white;
+
+    font-size:
+        clamp(
+            100px,
+            18vw,
+            190px
+        );
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    text-shadow:
+        0 10px 0
+        rgba(53,76,130,.4),
+        0 20px 40px
+        rgba(0,0,0,.3);
+}
+
+
+.countdown-number.pop {
+    animation:
+        countdownPop
+        .7s ease;
+}
+
+
+@keyframes countdownPop {
+
+    0% {
+        transform:
+            scale(.25);
+
+        opacity: 0;
+    }
+
+    35% {
+        transform:
+            scale(1.18);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   OVERLAYS
+===================================================== */
+
+.overlay {
+    position: fixed;
+
+    z-index: 10000;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 18px;
+
+    background:
+        rgba(37,38,53,.84);
+
+    backdrop-filter:
+        blur(7px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .2s ease;
+}
+
+
+.overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   INSTRUCTION
+===================================================== */
+
+.instruction-card {
+    width:
+        min(
+            590px,
+            94vw
+        );
+
+    max-height: 94dvh;
+
+    overflow-y: auto;
+
+    padding:
+        24px 30px 29px;
+
+    border:
+        7px solid
+        white;
+
+    border-radius: 31px;
+
+    background:
+        linear-gradient(
+            #5ec7eb,
+            #4b7acb
+        );
+
+    box-shadow:
+        0 11px 0
+        #355b98;
+
+    text-align: center;
+}
+
+
+.instruction-icons {
+    font-size: 51px;
+}
+
+
+.instruction-difficulty {
+    display: inline-block;
+
+    padding:
+        5px 14px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        linear-gradient(
+            #ffa749,
+            #e7682d
+        );
+
+    font-size: 8px;
+
+    font-weight: 800;
+}
+
+
+.instruction-card h1 {
+    margin:
+        6px 0 12px;
+
+    font-size: 33px;
+}
+
+
+.instruction-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-top: 7px;
+
+    padding:
+        9px 13px;
+
+    border-radius: 14px;
+
+    background:
+        white;
+
+    color:
+        #49485a;
+
+    text-align: left;
+}
+
+
+.instruction-row span {
+    width: 29px;
+
+    flex:
+        0 0 29px;
+
+    font-size: 21px;
+
+    text-align: center;
+}
+
+
+.instruction-row p {
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+.ready-button,
+.result-button {
+    width: 100%;
+
+    min-height: 55px;
+
+    margin-top: 16px;
+
+    border:
+        5px solid
+        white;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            #ffd445,
+            #f28c29
+        );
+
+    color: white;
+
+    box-shadow:
+        0 6px 0
+        #ae531b;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+.result-card {
+    width:
+        min(
+            520px,
+            93vw
+        );
+
+    padding: 28px;
+
+    border:
+        7px solid
+        white;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            #5fc7eb,
+            #4c7dcc
+        );
+
+    box-shadow:
+        0 11px 0
+        #365d99;
+
+    text-align: center;
+}
+
+
+.result-card.lost {
+    background:
+        linear-gradient(
+            #e65b68,
+            #a83a50
+        );
+
+    box-shadow:
+        0 11px 0
+        #702837;
+}
+
+
+.result-icon {
+    font-size: 74px;
+}
+
+
+.result-label {
+    color:
+        #ffe465;
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+
+.result-card h1 {
+    font-size: 40px;
+}
+
+
+.result-card p {
+    font-size: 12px;
+}
+
+
+.star-reward {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding:
+        7px 15px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        #f2a130;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media
+(max-width: 1000px) {
+
+    .stove-section {
+        width: 35%;
+    }
+
+
+    .ingredient-section {
+        width: 34%;
+    }
+
+
+    .stove {
+        width: 125px;
+    }
+
+
+    .plate {
+        width: 160px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media
+(max-width: 760px) {
+
+    .restaurant-wall {
+        height: 48%;
+    }
+
+
+    .window {
+        left: -42px;
+        top: 20%;
+
+        width: 145px;
+        height: 135px;
+
+        border-width: 7px;
+    }
+
+
+    .restaurant-sign {
+        top: 15%;
+
+        min-width: 155px;
+
+        padding:
+            5px 9px;
+
+        border-width: 4px;
+    }
+
+
+    .restaurant-sign span {
+        font-size: 17px;
+    }
+
+
+    .restaurant-sign strong {
+        font-size: 9px;
+    }
+
+
+    .restaurant-sign small {
+        font-size: 4px;
+    }
+
+
+    .menu-board {
+        right: -34px;
+        top: 19%;
+
+        width: 115px;
+
+        padding: 6px;
+
+        border-width: 4px;
+    }
+
+
+    .menu-board strong {
+        font-size: 6px;
+    }
+
+
+    .menu-board span {
+        font-size: 5px;
+    }
+
+
+    /* HUD */
+
+    .hud {
+        left: 5px;
+        right: 5px;
+
+        top:
+            max(
+                5px,
+                env(safe-area-inset-top)
+            );
+    }
+
+
+    .hud-card {
+        min-width: 82px;
+
+        gap: 3px;
+
+        padding:
+            5px 6px;
+
+        border-width: 3px;
+
+        border-radius: 11px;
+    }
+
+
+    .hud-icon {
+        font-size: 17px;
+    }
+
+
+    .hud-card small {
+        font-size: 5px;
+    }
+
+
+    .hud-card strong {
+        font-size: 11px;
+    }
+
+
+    .game-header {
+        padding:
+            4px 7px;
+
+        border-width: 3px;
+
+        border-radius: 10px;
+    }
+
+
+    .game-header .difficulty {
+        font-size: 4px;
+    }
+
+
+    .game-header strong {
+        font-size: 8px;
+    }
+
+
+    /* CUSTOMER */
+
+    .customer-zone {
+        top: 19%;
+
+        width: 185px;
+        height: 230px;
+    }
+
+
+    .customer {
+        font-size:
+            clamp(
+                92px,
+                28vw,
+                120px
+            );
+    }
+
+
+    .customer-name {
+        padding:
+            3px 7px;
+
+        border-width: 2px;
+
+        font-size: 6px;
+    }
+
+
+    .order-card {
+        left: -62px;
+        top: 38px;
+
+        width: 80px;
+
+        padding: 5px;
+
+        border-width: 3px;
+    }
+
+
+    .order-top {
+        font-size: 5px;
+    }
+
+
+    .order-icons {
+        font-size: 14px;
+    }
+
+
+    .order-name {
+        font-size: 5px;
+    }
+
+
+    .patience-panel {
+        right: -64px;
+        top: 42px;
+
+        width: 84px;
+
+        padding: 4px;
+
+        border-width: 3px;
+    }
+
+
+    .patience-info {
+        font-size: 4px;
+    }
+
+
+    .patience-info strong {
+        font-size: 6px;
+    }
+
+
+    .patience-bar {
+        height: 7px;
+
+        border-width: 1px;
+    }
+
+
+    /* COUNTER */
+
+    .counter {
+        height: 54%;
+
+        border-top-width: 8px;
+
+        overflow-y: auto;
+
+        padding-bottom:
+            max(
+                8px,
+                env(safe-area-inset-bottom)
+            );
+    }
+
+
+    .counter-title {
+        top: -19px;
+
+        padding:
+            3px 8px;
+
+        border-width: 2px;
+
+        font-size: 5px;
+    }
+
+
+    /* LAYOUT BECOMES GRID */
+
+    .stove-section,
+    .plate-section,
+    .ingredient-section {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        top: auto;
+
+        width: auto;
+
+        transform: none;
+    }
+
+
+    .counter {
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        grid-template-areas:
+            "stoves plate"
+            "ingredients ingredients";
+
+        gap: 8px;
+
+        padding:
+            20px 8px 10px;
+    }
+
+
+    .stove-section {
+        grid-area: stoves;
+    }
+
+
+    .plate-section {
+        grid-area: plate;
+    }
+
+
+    .ingredient-section {
+        grid-area: ingredients;
+    }
+
+
+    .section-label {
+        margin-bottom: 4px;
+
+        font-size: 6px;
+    }
+
+
+    /* STOVES */
+
+    .stoves {
+        gap: 4px;
+    }
+
+
+    .stove {
+        width:
+            min(
+                82px,
+                22vw
+            );
+
+        height: 104px;
+
+        padding: 3px;
+
+        border-width: 3px;
+
+        border-radius: 10px;
+    }
+
+
+    .stove-number {
+        font-size: 4px;
+    }
+
+
+    .burner {
+        width: 48px;
+        height: 48px;
+
+        border-width: 5px;
+    }
+
+
+    .stove-food {
+        font-size: 21px;
+    }
+
+
+    .steam {
+        top: -17px;
+
+        font-size: 15px;
+    }
+
+
+    .cook-bar {
+        height: 6px;
+
+        margin-top: 4px;
+
+        border-width: 1px;
+    }
+
+
+    .stove-status {
+        font-size: 4px;
+    }
+
+
+    .stove-hint {
+        font-size: 4px;
+    }
+
+
+    /* PLATE */
+
+    .plate {
+        width: 100px;
+        height: 70px;
+
+        margin:
+            4px auto;
+
+        border-width: 7px;
+    }
+
+
+    .plate-food {
+        max-width: 80px;
+
+        font-size: 18px;
+    }
+
+
+    .plate-status {
+        min-width: 80px;
+
+        padding:
+            3px 5px;
+
+        border-width: 2px;
+
+        font-size: 4px;
+    }
+
+
+    .trash-button {
+        width: 105px;
+
+        min-height: 30px;
+
+        margin-top: 5px;
+
+        border-width: 2px;
+
+        font-size: 5px;
+    }
+
+
+    .trash-button span {
+        font-size: 12px;
+    }
+
+
+    .trash-button strong {
+        font-size: 5px;
+    }
+
+
+    .serve-hint {
+        font-size: 3px;
+    }
+
+
+    /* INGREDIENTS */
+
+    .ingredient-grid {
+        grid-template-columns:
+            repeat(
+                4,
+                1fr
+            );
+
+        gap: 4px;
+    }
+
+
+    .ingredient {
+        min-height: 48px;
+
+        padding: 2px;
+
+        border-width: 2px;
+
+        border-radius: 9px;
+
+        box-shadow:
+            0 3px 0
+            #385b95;
+    }
+
+
+    .ingredient span {
+        font-size: 18px;
+    }
+
+
+    .ingredient strong {
+        font-size: 4px;
+    }
+
+
+    .ingredient b {
+        padding:
+            1px 3px;
+
+        font-size: 3px;
+    }
+
+
+    /* INSTRUCTION */
+
+    .instruction-card {
+        padding: 14px;
+
+        border-width: 5px;
+
+        border-radius: 22px;
+    }
+
+
+    .instruction-icons {
+        font-size: 33px;
+    }
+
+
+    .instruction-card h1 {
+        margin:
+            4px 0 7px;
+
+        font-size: 23px;
+    }
+
+
+    .instruction-row {
+        margin-top: 5px;
+
+        padding:
+            6px 8px;
+    }
+
+
+    .instruction-row span {
+        width: 21px;
+
+        flex-basis: 21px;
+
+        font-size: 15px;
+    }
+
+
+    .instruction-row p {
+        font-size: 7px;
+    }
+
+
+    .ready-button {
+        min-height: 44px;
+
+        margin-top: 9px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media
+(max-width: 390px) {
+
+    .counter {
+        gap: 5px;
+
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+
+    .ingredient-grid {
+        grid-template-columns:
+            repeat(
+                4,
+                minmax(0,1fr)
+            );
+    }
+
+
+    .ingredient {
+        min-width: 0;
+    }
+
+
+    .stove {
+        width: 72px;
+    }
+
+
+    .plate {
+        width: 92px;
+    }
+
+}
