@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Animal Party - Home
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="home.css?v=70"
+    >
+
+</head>
+
+
+<body>
+
+
+
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
+
+<div class="house-world">
+
+
+    <div class="wall-glow"></div>
+
+
+
+    <!-- WINDOW -->
+
+    <div class="window">
+
+        <div class="window-sky">
+
+            <div class="outside-cloud">
+                ☁️
+            </div>
+
+            <div class="outside-hill"></div>
+
+        </div>
+
+
+        <div class="window-line-v"></div>
+
+        <div class="window-line-h"></div>
+
+    </div>
+
+
+
+    <!-- WALL DECOR -->
+
+    <div class="wall-picture">
+        🌳
+    </div>
+
+
+
+    <div class="shelf">
+
+        <span>
+            🪴
+        </span>
+
+        <span>
+            📚
+        </span>
+
+        <span>
+            🏆
+        </span>
+
+    </div>
+
+
+
+    <div class="lamp">
+        💡
+    </div>
+
+
+
+    <div class="fireplace">
+        🔥
+    </div>
+
+
+
+    <div class="rug"></div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     TOP HUD
+========================================================= -->
+
+<header class="top-hud">
+
+
+
+    <!-- =====================================================
+         LEFT HUD
+    ====================================================== -->
+
+    <div class="progress-side">
+
+
+
+        <!-- LEVEL -->
+
+        <div class="level-card">
+
+
+            <div class="level-icon">
+                ⭐
+            </div>
+
+
+            <div class="level-info">
+
+                <small>
+                    LEVEL
+                </small>
+
+
+                <strong>
+
+                    LVL
+
+                    <span id="levelText">
+                        1
+                    </span>
+
+                </strong>
+
+
+                <div
+                    class="star-row"
+                    id="starRow"
+                >
+
+                    <span>
+                        ☆
+                    </span>
+
+                    <span>
+                        ☆
+                    </span>
+
+                    <span>
+                        ☆
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RANK
+        ================================================== -->
+
+        <div
+            class="rank-card"
+            id="rankCard"
+        >
+
+
+            <div
+                class="rank-icon"
+                id="rankIcon"
+            >
+                🧸
+            </div>
+
+
+            <div class="rank-main">
+
+                <small>
+                    CURRENT RANK
+                </small>
+
+                <strong id="rankText">
+                    Beginner
+                </strong>
+
+            </div>
+
+
+
+            <!-- RANK LIST -->
+
+            <div
+                class="rank-list"
+                id="rankList"
+            >
+
+
+                <div class="rank-list-title">
+                    🏆 RANK ROAD
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        🧸 Beginner
+                    </span>
+
+                    <b>
+                        Lv 1–2
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        🪆 Professional
+                    </span>
+
+                    <b>
+                        Lv 3–9
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        🎎 Master
+                    </span>
+
+                    <b>
+                        Lv 10–14
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        ⚡ Flash
+                    </span>
+
+                    <b>
+                        Lv 15–24
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        ☄️ Hero
+                    </span>
+
+                    <b>
+                        Lv 25–39
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        ⭐ Legend
+                    </span>
+
+                    <b>
+                        Lv 40–69
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        ⛅ S1
+                    </span>
+
+                    <b>
+                        Lv 70–74
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        🌤 S2
+                    </span>
+
+                    <b>
+                        Lv 75–79
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        ☀️ S3
+                    </span>
+
+                    <b>
+                        Lv 80–84
+                    </b>
+
+                </div>
+
+
+                <div class="rank-line">
+
+                    <span>
+                        🌈 S+
+                    </span>
+
+                    <b>
+                        Lv 85+
+                    </b>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         RIGHT HUD
+    ====================================================== -->
+
+    <div class="top-right">
+
+
+        <div
+            class="mode-pill"
+            id="modePill"
+        >
+            👤 GUEST
+        </div>
+
+
+        <div class="party-ready">
+
+            <span class="online-dot"></span>
+
+            PARTY READY
+
+        </div>
+
+
+        <div class="social-row">
+
+            <span>
+                📸 @Sanndreann
+            </span>
+
+            <span>
+                ♪ @Sanndrean
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+</header>
+
+
+
+<!-- =========================================================
+     CHARACTER AREA
+========================================================= -->
+
+<main class="character-area">
+
+
+    <div class="character-ring ring-one"></div>
+
+    <div class="character-ring ring-two"></div>
+
+
+    <div class="character-glow"></div>
+
+
+
+    <div
+        class="home-character"
+        id="homeCharacter"
+    >
+        🐶
+    </div>
+
+
+
+    <div
+        class="character-name"
+        id="homeCharacterName"
+    >
+        Maximus
+    </div>
+
+
+
+    <div class="speech-bubble">
+        Ready for another challenge? 🎮
+    </div>
+
+
+
+    <div class="character-platform"></div>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     PARTY CENTER
+========================================================= -->
+
+<aside class="party-panel">
+
+
+    <div class="party-panel-title">
+
+        <span>
+            🎲
+        </span>
+
+        PARTY CENTER
+
+    </div>
+
+
+
+    <div class="party-card-main">
+
+
+        <div class="party-card-icon">
+            🎮
+        </div>
+
+
+        <div>
+
+            <small>
+                RANDOM MATCH
+            </small>
+
+
+            <strong>
+                MINI GAME
+            </strong>
+
+
+            <p>
+                Unplayed and unbanned games are picked first.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="party-tip">
+
+        ⭐
+
+        <span>
+            Every win gives 1 star.
+        </span>
+
+    </div>
+
+
+
+    <div class="party-tip">
+
+        🚫
+
+        <span>
+            Ban games you don't want in Random Match.
+        </span>
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- =========================================================
+     BOTTOM BUTTONS
+========================================================= -->
+
+<div class="bottom-controls">
+
+
+
+    <!-- HELP -->
+
+    <button
+        type="button"
+        class="small-action help-button"
+        id="helpButton"
+        title="How to Play"
+    >
+        ?
+    </button>
+
+
+
+    <!-- LIBRARY -->
+
+    <button
+        type="button"
+        class="small-action library-button"
+        id="libraryButton"
+        title="Mini Game Library"
+    >
+        !
+    </button>
+
+
+
+    <!-- PLAY -->
+
+    <button
+        type="button"
+        class="play-match-button"
+        id="playMatchButton"
+    >
+
+
+        <span class="controller">
+            🎮
+        </span>
+
+
+        <div>
+
+            <small>
+                RANDOM CHALLENGE
+            </small>
+
+            <strong>
+                PLAY MATCH
+            </strong>
+
+        </div>
+
+
+        <span class="play-arrow">
+            ➜
+        </span>
+
+
+    </button>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     LOBBY
+========================================================= -->
+
+<button
+    type="button"
+    class="lobby-castle-button"
+    id="backToLobbyButton"
+    title="Back to Lobby"
+>
+
+
+    <span class="castle-icon">
+        🏰
+    </span>
+
+
+    <span class="castle-text">
+        LOBBY
+    </span>
+
+
+</button>
+
+
+
+<!-- =========================================================
+     HELP OVERLAY
+========================================================= -->
+
+<div
+    class="overlay"
+    id="helpOverlay"
+>
+
+
+    <section class="popup help-popup">
+
+
+        <div class="popup-icon">
+            🎮
+        </div>
+
+
+        <div class="popup-label">
+            ANIMAL PARTY
+        </div>
+
+
+        <h1>
+            HOW TO PLAY
+        </h1>
+
+
+
+        <div class="help-grid">
+
+
+            <div class="help-item">
+
+                <span>
+                    🎲
+                </span>
+
+                <div>
+
+                    <strong>
+                        RANDOM MATCH
+                    </strong>
+
+                    <p>
+                        Picks an unplayed mini game first.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="help-item">
+
+                <span>
+                    🚫
+                </span>
+
+                <div>
+
+                    <strong>
+                        BAN A GAME
+                    </strong>
+
+                    <p>
+                        Banned games will not appear in Random Match.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="help-item">
+
+                <span>
+                    ⭐
+                </span>
+
+                <div>
+
+                    <strong>
+                        WIN
+                    </strong>
+
+                    <p>
+                        Every victory gives you one star.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="help-item">
+
+                <span>
+                    🌟
+                </span>
+
+                <div>
+
+                    <strong>
+                        LEVEL UP
+                    </strong>
+
+                    <p>
+                        Collect three stars to gain one level.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <button
+            type="button"
+            class="popup-button"
+            id="closeHelpButton"
+        >
+            GOT IT!
+        </button>
+
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     MINI GAME LIBRARY
+========================================================= -->
+
+<div
+    class="overlay"
+    id="libraryOverlay"
+>
+
+
+    <section class="library-window">
+
+
+
+        <!-- =================================================
+             LIBRARY HEADER
+        ================================================== -->
+
+        <div class="library-top">
+
+
+            <div class="library-heading">
+
+                <div class="popup-label">
+                    🎮 ANIMAL PARTY
+                </div>
+
+
+                <h1>
+                    MINI GAME LIBRARY
+                </h1>
+
+
+                <p>
+                    Play any game or ban games you don't want in Random Match.
+                </p>
+
+            </div>
+
+
+
+            <button
+                type="button"
+                class="close-library"
+                id="closeLibraryButton"
+            >
+                ✕
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             LIBRARY STATS
+        ================================================== -->
+
+        <div class="library-stats">
+
+
+            <div class="library-stat">
+
+
+                <span>
+                    🎮
+                </span>
+
+
+                <div>
+
+                    <small>
+                        AVAILABLE
+                    </small>
+
+                    <strong id="availableGameCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="library-stat banned-stat">
+
+
+                <span>
+                    🚫
+                </span>
+
+
+                <div>
+
+                    <small>
+                        BANNED
+                    </small>
+
+                    <strong id="bannedGameCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <button
+                type="button"
+                class="unban-all-button"
+                id="unbanAllButton"
+            >
+                ♻ UNBAN ALL
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+
+        <div class="difficulty-filter">
+
+
+            <button
+                type="button"
+                class="filter-button active"
+                data-filter="all"
+            >
+                🎮 ALL
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="easy"
+            >
+                🟢 EASY
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="beginner"
+            >
+                🟡 BEGINNER
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="hard"
+            >
+                🟠 HARD
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="impossible"
+            >
+                🔴 IMPOSSIBLE
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="deadly"
+            >
+                ⚫ DEADLY
+            </button>
+
+
+            <button
+                type="button"
+                class="filter-button banned-filter"
+                data-filter="banned"
+            >
+                🚫 BANNED
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             GAME CARDS GENERATED BY JS
+        ================================================== -->
+
+        <div
+            class="game-library-grid"
+            id="gameLibraryGrid"
+        ></div>
+
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     NO AVAILABLE GAME POPUP
+========================================================= -->
+
+<div
+    class="overlay"
+    id="noGameOverlay"
+>
+
+
+    <section class="popup warning-popup">
+
+
+        <div class="popup-icon">
+            🚫
+        </div>
+
+
+        <div class="popup-label">
+            RANDOM MATCH
+        </div>
+
+
+        <h1>
+            NO GAMES AVAILABLE
+        </h1>
+
+
+        <p class="warning-text">
+
+            All available mini games are currently banned.
+
+            <br>
+
+            Unban at least one game in the Mini Game Library.
+
+        </p>
+
+
+        <button
+            type="button"
+            class="popup-button"
+            id="openLibraryFromWarningButton"
+        >
+            OPEN MINI GAME LIBRARY
+        </button>
+
+
+        <button
+            type="button"
+            class="secondary-popup-button"
+            id="closeNoGameButton"
+        >
+            CLOSE
+        </button>
+
+
+    </section>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     GAME TRANSITION
+========================================================= -->
+
+<div
+    class="game-transition"
+    id="gameTransition"
+>
+
+
+    <div class="transition-glow"></div>
+
+
+    <div class="transition-content">
+
+
+        <div
+            class="transition-game-icon"
+            id="transitionGameIcon"
+        >
+            🎮
+        </div>
+
+
+        <div class="popup-label">
+            NEXT MINI GAME
+        </div>
+
+
+        <h1 id="transitionGameName">
+            CHOOSING...
+        </h1>
+
+
+        <p id="transitionGameDifficulty">
+            Finding a challenge...
+        </p>
+
+
+        <div class="transition-track">
+
+            <div class="transition-fill"></div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     REWARD
+========================================================= -->
+
+<div
+    class="reward-overlay"
+    id="rewardOverlay"
+>
+
+
+    <div class="reward-rays"></div>
+
+
+    <div class="reward-star">
+        ⭐
+    </div>
+
+
+    <h1>
+        +1 STAR!
+    </h1>
+
+
+    <p>
+        Great job!
+    </p>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     LEVEL UP
+========================================================= -->
+
+<div
+    class="level-overlay"
+    id="levelUpOverlay"
+>
+
+
+    <div class="confetti">
+        🎉 ✨ ⭐ 🎊 ✨ 🎉
+    </div>
+
+
+    <div class="level-popup">
+
+
+        <div class="level-popup-icon">
+            🌟
+        </div>
+
+
+        <small>
+            PROGRESS UPDATE
+        </small>
+
+
+        <h1>
+            LEVEL UP!
+        </h1>
+
+
+        <p id="levelUpText">
+            LEVEL 2
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     RANK UP
+========================================================= -->
+
+<div
+    class="level-overlay"
+    id="rankUpOverlay"
+>
+
+
+    <div class="confetti">
+        🎊 🏆 ✨ ⭐ 🎉
+    </div>
+
+
+    <div class="level-popup rank-popup">
+
+
+        <div class="level-popup-icon">
+            🏆
+        </div>
+
+
+        <small>
+            NEW RANK UNLOCKED
+        </small>
+
+
+        <h1 id="rankUpText">
+            🪆 Professional
+        </h1>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- AUDIO -->
+
+<script src="./audio.js?v=4"></script>
+
+
+
+<!-- HOME -->
+
+<script src="./home.js?v=CARDMATCH3"></script>
+
+
+</body>
+
+</html>

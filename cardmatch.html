@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Animal Party - Card Match
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="cardmatch.css?v=4"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     GAME WORLD
+======================================================= -->
+
+<main class="game-world">
+
+
+    <!-- DECORATION -->
+
+    <div class="paper-stack">
+        📄
+    </div>
+
+    <div class="gift-box">
+        🎁
+    </div>
+
+    <div class="plant">
+        🌿
+    </div>
+
+    <div class="pencil">
+        ✏️
+    </div>
+
+
+    <!-- ==================================================
+         TABLE
+    =================================================== -->
+
+    <section class="table-area">
+
+
+        <!-- ==================================================
+             HUD
+        =================================================== -->
+
+        <header class="hud">
+
+
+            <!-- TIMER -->
+
+            <div class="hud-card">
+
+                <span class="hud-icon">
+                    ⏱️
+                </span>
+
+                <div>
+
+                    <small>
+                        WAKTU
+                    </small>
+
+                    <strong id="timerText">
+                        30
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <div class="game-title">
+
+                <small>
+                    🟢 EASY ⭐
+                </small>
+
+                <strong>
+                    CARD MATCH
+                </strong>
+
+                <span id="roundHud">
+                    RONDE 1 / 3
+                </span>
+
+            </div>
+
+
+
+            <!-- MATCH COUNTER -->
+
+            <div class="hud-card pair-card">
+
+                <span class="hud-icon">
+                    🃏
+                </span>
+
+                <div>
+
+                    <small id="matchedLabel">
+                        PASANGAN
+                    </small>
+
+                    <strong>
+
+                        <span id="matchedText">
+                            0
+                        </span>
+
+                        /
+
+                        <span id="targetText">
+                            6
+                        </span>
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- ==================================================
+             MEMORIZE BANNER
+        =================================================== -->
+
+        <div
+            class="memorize-banner"
+            id="memorizeBanner"
+        >
+
+            <span>
+                👀
+            </span>
+
+            <div>
+
+                <small>
+                    HAFALKAN!
+                </small>
+
+                <strong>
+
+                    <span id="memorizeTime">
+                        5
+                    </span>
+
+                    DETIK
+
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             ROUND RULE CHIP
+        =================================================== -->
+
+        <div
+            class="round-rule"
+            id="roundRule"
+        >
+            🧠 Cocokkan 2 kartu yang sama
+        </div>
+
+
+
+        <!-- ==================================================
+             CARDS
+        =================================================== -->
+
+        <div
+            class="card-grid round-1"
+            id="cardGrid"
+        ></div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ======================================================
+     SMALL MESSAGE
+======================================================= -->
+
+<div
+    class="game-message"
+    id="gameMessage"
+>
+    PASANGAN BENAR!
+</div>
+
+
+
+<!-- ======================================================
+     START COUNTDOWN
+======================================================= -->
+
+<div
+    class="countdown-overlay"
+    id="countdownOverlay"
+>
+
+    <div
+        class="countdown-number"
+        id="countdownNumber"
+    >
+        3
+    </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     ROUND INTRO
+======================================================= -->
+
+<div
+    class="round-overlay"
+    id="roundOverlay"
+>
+
+    <section class="round-box">
+
+        <small id="roundSmallText">
+            BERSIAP!
+        </small>
+
+        <h1 id="roundBigText">
+            RONDE 1
+        </h1>
+
+        <p id="roundDescription">
+            12 kartu • 6 pasangan
+        </p>
+
+    </section>
+
+</div>
+
+
+
+<!-- ======================================================
+     INSTRUCTIONS
+======================================================= -->
+
+<div
+    class="overlay show"
+    id="instructionOverlay"
+>
+
+    <section class="instruction-card">
+
+
+        <div class="instruction-icons">
+            🃏 🧠 ✨
+        </div>
+
+
+        <div class="difficulty-pill">
+            🟢 EASY ⭐
+        </div>
+
+
+        <h1>
+            CARD MATCH
+        </h1>
+
+
+        <div class="instruction-row">
+
+            <span>
+                👀
+            </span>
+
+            <p>
+                Semua kartu akan dibuka selama 5 detik di awal setiap ronde.
+            </p>
+
+        </div>
+
+
+        <div class="instruction-row">
+
+            <span>
+                🧠
+            </span>
+
+            <p>
+                Hafalkan gambar dan posisi setiap kartu sebelum kartu ditutup.
+            </p>
+
+        </div>
+
+
+        <div class="instruction-row">
+
+            <span>
+                1️⃣
+            </span>
+
+            <p>
+                Ronde 1: 12 kartu. Cari 6 pasangan dalam waktu 30 detik.
+            </p>
+
+        </div>
+
+
+        <div class="instruction-row">
+
+            <span>
+                2️⃣
+            </span>
+
+            <p>
+                Ronde 2: 12 kartu baru. Cari 6 pasangan dalam waktu 30 detik.
+            </p>
+
+        </div>
+
+
+        <div class="instruction-row">
+
+            <span>
+                3️⃣
+            </span>
+
+            <p>
+                Ronde 3: 15 kartu. Kali ini cari 3 kartu yang sama untuk menyelesaikan 5 set.
+            </p>
+
+        </div>
+
+
+        <div class="instruction-row">
+
+            <span>
+                ⏱️
+            </span>
+
+            <p>
+                Ronde terakhir memiliki waktu 50 detik. Jika waktu habis di ronde mana pun, kamu kalah.
+            </p>
+
+        </div>
+
+
+        <div class="instruction-row">
+
+            <span>
+                ⭐
+            </span>
+
+            <p>
+                Selesaikan ketiga ronde untuk menang dan mendapatkan +1 bintang.
+            </p>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="ready-button"
+            id="readyButton"
+        >
+            SIAP!
+        </button>
+
+
+    </section>
+
+</div>
+
+
+
+<!-- ======================================================
+     NEXT ROUND POPUP
+======================================================= -->
+
+<div
+    class="overlay"
+    id="nextRoundOverlay"
+>
+
+    <section class="next-round-card">
+
+
+        <div
+            class="next-round-icon"
+            id="nextRoundIcon"
+        >
+            🎉
+        </div>
+
+
+        <div class="next-round-label">
+            RONDE SELESAI
+        </div>
+
+
+        <h1 id="nextRoundTitle">
+            RONDE 1 SELESAI!
+        </h1>
+
+
+        <p id="nextRoundDescription">
+            Bagus! Bersiap untuk ronde berikutnya.
+        </p>
+
+
+        <button
+            type="button"
+            class="next-round-button"
+            id="nextRoundButton"
+        >
+            RONDE BERIKUTNYA ➜
+        </button>
+
+
+    </section>
+
+</div>
+
+
+
+<!-- ======================================================
+     RESULT
+======================================================= -->
+
+<div
+    class="overlay"
+    id="resultOverlay"
+>
+
+    <section
+        class="result-card"
+        id="resultCard"
+    >
+
+
+        <div
+            class="result-icon"
+            id="resultIcon"
+        >
+            ⭐
+        </div>
+
+
+        <div
+            class="result-label"
+            id="resultLabel"
+        >
+            MEMORY MASTER
+        </div>
+
+
+        <h1 id="resultTitle">
+            YOU WON!
+        </h1>
+
+
+        <p id="resultDescription">
+            Kamu berhasil menyelesaikan ketiga ronde!
+        </p>
+
+
+        <div
+            class="star-reward"
+            id="starReward"
+        >
+            ⭐ +1 STAR
+        </div>
+
+
+        <button
+            type="button"
+            class="result-button"
+            id="resultButton"
+        >
+            CONTINUE
+        </button>
+
+
+    </section>
+
+</div>
+
+
+
+<!-- AUDIO -->
+
+<script src="./audio.js?v=4"></script>
+
+
+<!-- GAME -->
+
+<script src="cardmatch.js?v=4"></script>
+
+
+</body>
+
+</html>

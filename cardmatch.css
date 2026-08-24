@@ -1,0 +1,2380 @@
+@import url(
+    "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap"
+);
+
+
+/* ======================================================
+   RESET
+======================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+body {
+
+    overflow: hidden;
+
+    font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+
+    color: white;
+
+    background:
+        #dfbb87;
+
+    user-select: none;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+button {
+
+    font-family: inherit;
+
+}
+
+
+/* ======================================================
+   WOOD TABLE
+======================================================= */
+
+.game-world {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+
+            #ddb684 0px,
+
+            #e7c797 105px,
+
+            #d2a875 108px,
+
+            #e4c18d 215px
+        );
+
+}
+
+
+.game-world::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .16;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            3deg,
+
+            transparent 0px,
+
+            transparent 26px,
+
+            rgba(100,65,39,.25) 27px,
+
+            transparent 29px
+        );
+
+}
+
+
+.game-world::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at center,
+
+            transparent 25%,
+
+            rgba(70,45,26,.17) 100%
+        );
+
+}
+
+
+/* ======================================================
+   TABLE DECOR
+======================================================= */
+
+.paper-stack {
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: -40px;
+
+    top: -45px;
+
+    font-size: 170px;
+
+    transform:
+        rotate(-18deg);
+
+    filter:
+        drop-shadow(
+            0 14px 5px
+            rgba(80,50,30,.15)
+        );
+
+}
+
+
+.gift-box {
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: 4%;
+
+    bottom: 4%;
+
+    font-size: 72px;
+
+    transform:
+        rotate(-12deg);
+
+}
+
+
+.plant {
+
+    position: absolute;
+
+    z-index: 1;
+
+    right: -20px;
+
+    bottom: -30px;
+
+    font-size: 150px;
+
+    transform:
+        rotate(14deg);
+
+}
+
+
+.pencil {
+
+    position: absolute;
+
+    z-index: 1;
+
+    right: 7%;
+
+    top: 9%;
+
+    font-size: 62px;
+
+    transform:
+        rotate(36deg);
+
+}
+
+
+/* ======================================================
+   TABLE AREA
+======================================================= */
+
+.table-area {
+
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        min(
+            1050px,
+            97vw
+        );
+
+    height: 100dvh;
+
+    margin:
+        0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        125px 18px 30px;
+
+}
+
+
+/* ======================================================
+   HUD
+======================================================= */
+
+.hud {
+
+    position: absolute;
+
+    z-index: 50;
+
+    left: 0;
+
+    right: 0;
+
+    top:
+        max(
+            17px,
+            env(safe-area-inset-top)
+        );
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+}
+
+
+.hud-card {
+
+    min-width: 155px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        9px 14px;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            #5bc9ed,
+            #487bc7
+        );
+
+    box-shadow:
+        0 6px 0
+        #355b97,
+
+        0 12px 20px
+        rgba(74,48,30,.18);
+
+}
+
+
+.hud-icon {
+
+    font-size: 30px;
+
+}
+
+
+.hud-card div {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.hud-card small {
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+.hud-card strong {
+
+    font-size: 20px;
+
+    line-height: 1;
+
+}
+
+
+.pair-card {
+
+    background:
+        linear-gradient(
+            #5fd58e,
+            #359d69
+        );
+
+    box-shadow:
+        0 6px 0
+        #27744e,
+
+        0 12px 20px
+        rgba(74,48,30,.18);
+
+}
+
+
+/* ======================================================
+   GAME TITLE
+======================================================= */
+
+.game-title {
+
+    min-width: 225px;
+
+    padding:
+        7px 21px;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            #f6a642,
+            #e06d2c
+        );
+
+    box-shadow:
+        0 6px 0
+        #a74e24,
+
+        0 12px 20px
+        rgba(74,48,30,.18);
+
+    text-align: center;
+
+}
+
+
+.game-title small {
+
+    display: block;
+
+    color:
+        #fff294;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+}
+
+
+.game-title strong {
+
+    display: block;
+
+    font-size: 18px;
+
+    line-height: 1;
+
+}
+
+
+.game-title span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color:
+        #fff4c3;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+/* ======================================================
+   MEMORIZE BANNER
+======================================================= */
+
+.memorize-banner {
+
+    position: absolute;
+
+    z-index: 60;
+
+    left: 50%;
+
+    top: 98px;
+
+    transform:
+        translateX(-50%)
+        translateY(-14px);
+
+    min-width: 220px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding:
+        8px 17px;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            #9171da,
+            #5e4faf
+        );
+
+    box-shadow:
+        0 6px 0
+        #453982;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        .2s ease;
+
+}
+
+
+.memorize-banner.show {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
+}
+
+
+.memorize-banner > span {
+
+    font-size: 30px;
+
+}
+
+
+.memorize-banner div {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.memorize-banner small {
+
+    color:
+        #ffe668;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+}
+
+
+.memorize-banner strong {
+
+    font-size: 13px;
+
+}
+
+
+/* ======================================================
+   ROUND RULE
+======================================================= */
+
+.round-rule {
+
+    position: absolute;
+
+    z-index: 45;
+
+    left: 50%;
+
+    top: 155px;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        6px 14px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        rgba(84,72,132,.88);
+
+    box-shadow:
+        0 4px 0
+        rgba(61,48,103,.9);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+
+/* ======================================================
+   CARD GRID
+======================================================= */
+
+.card-grid {
+
+    width:
+        min(
+            850px,
+            92vw
+        );
+
+    display: grid;
+
+    justify-content: center;
+
+    perspective:
+        1200px;
+
+}
+
+
+/* ROUND 1 = 12 */
+
+.card-grid.round-1 {
+
+    max-width: 690px;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 16px;
+
+}
+
+
+/* ROUND 2 = 12 */
+
+.card-grid.round-2 {
+
+    max-width: 690px;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 16px;
+
+}
+
+
+/* ROUND 3 = 15 */
+
+.card-grid.round-3 {
+
+    max-width: 820px;
+
+    grid-template-columns:
+        repeat(
+            5,
+            1fr
+        );
+
+    gap: 13px;
+
+}
+
+
+/* ======================================================
+   CARD
+======================================================= */
+
+.memory-card {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio:
+        4 / 3;
+
+    border: 0;
+
+    background:
+        transparent;
+
+    cursor: pointer;
+
+    perspective:
+        900px;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+.card-inner {
+
+    position: absolute;
+
+    inset: 0;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform .46s
+        cubic-bezier(
+            .2,
+            .75,
+            .25,
+            1
+        );
+
+}
+
+
+.memory-card.flipped
+.card-inner,
+.memory-card.matched
+.card-inner {
+
+    transform:
+        rotateY(180deg);
+
+}
+
+
+/* ======================================================
+   CARD SIDES
+======================================================= */
+
+.card-front,
+.card-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    backface-visibility:
+        hidden;
+
+    -webkit-backface-visibility:
+        hidden;
+
+    border:
+        6px solid
+        white;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 7px 0
+        rgba(93,62,41,.23),
+
+        0 12px 20px
+        rgba(74,49,31,.13);
+
+}
+
+
+/* ======================================================
+   BACK
+======================================================= */
+
+.card-back {
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #72d0ed,
+            #4e82ca
+        );
+
+}
+
+
+.card-back::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border:
+        3px solid
+        rgba(255,255,255,.7);
+
+    border-radius: 8px;
+
+}
+
+
+.card-back::after {
+
+    content: "🐾";
+
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            45px
+        );
+
+    text-shadow:
+        0 3px 0
+        rgba(48,82,141,.45);
+
+}
+
+
+/* ======================================================
+   FRONT
+======================================================= */
+
+.card-front {
+
+    transform:
+        rotateY(180deg);
+
+    background:
+        linear-gradient(
+            #fff8dc,
+            #f1d9a4
+        );
+
+}
+
+
+.card-symbol {
+
+    font-size:
+        clamp(
+            34px,
+            4.8vw,
+            58px
+        );
+
+    filter:
+        drop-shadow(
+            0 4px 2px
+            rgba(73,48,31,.14)
+        );
+
+}
+
+
+/* ======================================================
+   MATCHED
+======================================================= */
+
+.memory-card.matched
+.card-front {
+
+    border-color:
+        #5add7d;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(76,214,112,.3),
+
+        0 7px 0
+        #309d56;
+
+    animation:
+        matchedBounce
+        .45s ease;
+
+}
+
+
+@keyframes matchedBounce {
+
+    50% {
+
+        transform:
+            rotateY(180deg)
+            scale(1.08);
+
+    }
+
+}
+
+
+/* ======================================================
+   WRONG
+======================================================= */
+
+.memory-card.wrong
+.card-front {
+
+    border-color:
+        #ed5564;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(235,71,87,.26),
+
+        0 7px 0
+        #ac3441;
+
+    animation:
+        wrongShake
+        .35s ease;
+
+}
+
+
+@keyframes wrongShake {
+
+    25% {
+
+        transform:
+            rotateY(180deg)
+            translateX(-7px);
+
+    }
+
+
+    50% {
+
+        transform:
+            rotateY(180deg)
+            translateX(7px);
+
+    }
+
+
+    75% {
+
+        transform:
+            rotateY(180deg)
+            translateX(-4px);
+
+    }
+
+}
+
+
+/* ======================================================
+   SELECTED THIRD ROUND
+======================================================= */
+
+.memory-card.selected
+.card-front {
+
+    border-color:
+        #ffd653;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(255,211,71,.28),
+
+        0 7px 0
+        #d2992b;
+
+}
+
+
+/* ======================================================
+   MESSAGE
+======================================================= */
+
+.game-message {
+
+    position: fixed;
+
+    z-index: 5000;
+
+    left: 50%;
+
+    top: 16%;
+
+    transform:
+        translate(-50%,-15px)
+        scale(.8);
+
+    padding:
+        10px 23px;
+
+    border:
+        4px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        #f19833;
+
+    box-shadow:
+        0 5px 0
+        #aa511e;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+.game-message.show {
+
+    animation:
+        messagePop
+        1s ease;
+
+}
+
+
+.game-message.good {
+
+    background:
+        #48c87b;
+
+    box-shadow:
+        0 5px 0
+        #298a50;
+
+}
+
+
+.game-message.bad {
+
+    background:
+        #e94f60;
+
+    box-shadow:
+        0 5px 0
+        #a83340;
+
+}
+
+
+@keyframes messagePop {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%,-15px)
+            scale(.7);
+
+    }
+
+
+    20%,
+    75% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%,0)
+            scale(1);
+
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%,-7px)
+            scale(.9);
+
+    }
+
+}
+
+
+/* ======================================================
+   NORMAL OVERLAY
+======================================================= */
+
+.overlay {
+
+    position: fixed;
+
+    z-index: 10000;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 18px;
+
+    background:
+        rgba(36,38,53,.82);
+
+    backdrop-filter:
+        blur(7px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .2s ease;
+
+}
+
+
+.overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* ======================================================
+   INSTRUCTIONS
+======================================================= */
+
+.instruction-card {
+
+    width:
+        min(
+            610px,
+            94vw
+        );
+
+    max-height:
+        94dvh;
+
+    overflow-y: auto;
+
+    padding:
+        24px 30px 28px;
+
+    border:
+        7px solid
+        white;
+
+    border-radius: 31px;
+
+    background:
+        linear-gradient(
+            #60c8ec,
+            #4c7dcc
+        );
+
+    box-shadow:
+        0 11px 0
+        #355b98;
+
+    text-align: center;
+
+}
+
+
+.instruction-icons {
+
+    font-size: 50px;
+
+}
+
+
+.difficulty-pill {
+
+    display: inline-block;
+
+    padding:
+        5px 14px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        linear-gradient(
+            #64dca4,
+            #39ac78
+        );
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+.instruction-card h1 {
+
+    margin:
+        6px 0 11px;
+
+    font-size: 34px;
+
+}
+
+
+.instruction-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-top: 6px;
+
+    padding:
+        9px 13px;
+
+    border-radius: 14px;
+
+    background:
+        white;
+
+    color:
+        #49485b;
+
+    text-align: left;
+
+}
+
+
+.instruction-row span {
+
+    width: 29px;
+
+    flex:
+        0 0 29px;
+
+    font-size: 20px;
+
+    text-align: center;
+
+}
+
+
+.instruction-row p {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+}
+
+
+.ready-button,
+.result-button,
+.next-round-button {
+
+    width: 100%;
+
+    min-height: 55px;
+
+    margin-top: 16px;
+
+    border:
+        5px solid
+        white;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            #ffd447,
+            #f28b29
+        );
+
+    color: white;
+
+    box-shadow:
+        0 6px 0
+        #af541b;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+
+/* ======================================================
+   COUNTDOWN
+======================================================= */
+
+.countdown-overlay {
+
+    position: fixed;
+
+    z-index: 15000;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(38,40,55,.7);
+
+    backdrop-filter:
+        blur(5px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.countdown-overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.countdown-number {
+
+    color: white;
+
+    font-size:
+        clamp(
+            105px,
+            18vw,
+            190px
+        );
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    text-shadow:
+        0 10px 0
+        rgba(55,78,132,.42),
+
+        0 20px 35px
+        rgba(0,0,0,.22);
+
+}
+
+
+.countdown-number.pop {
+
+    animation:
+        countdownPop
+        .7s ease;
+
+}
+
+
+@keyframes countdownPop {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(.2)
+            rotate(-10deg);
+
+    }
+
+
+    40% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.2)
+            rotate(3deg);
+
+    }
+
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* ======================================================
+   ROUND INTRO
+======================================================= */
+
+.round-overlay {
+
+    position: fixed;
+
+    z-index: 14500;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(48,66,110,.77);
+
+    backdrop-filter:
+        blur(6px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        .2s ease;
+
+}
+
+
+.round-overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.round-box {
+
+    min-width:
+        min(
+            440px,
+            88vw
+        );
+
+    padding:
+        26px 35px;
+
+    border:
+        7px solid
+        white;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            #60caed,
+            #507bc7
+        );
+
+    box-shadow:
+        0 10px 0
+        #365a95;
+
+    text-align: center;
+
+    animation:
+        roundEnter
+        .45s ease;
+
+}
+
+
+@keyframes roundEnter {
+
+    from {
+
+        transform:
+            scale(.55)
+            rotate(-4deg);
+
+    }
+
+}
+
+
+.round-box small {
+
+    color:
+        #ffe76b;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+
+.round-box h1 {
+
+    font-size: 43px;
+
+    line-height: 1.05;
+
+}
+
+
+.round-box p {
+
+    margin-top: 5px;
+
+    font-size: 12px;
+
+}
+
+
+/* ======================================================
+   NEXT ROUND POPUP
+======================================================= */
+
+.next-round-card {
+
+    width:
+        min(
+            500px,
+            92vw
+        );
+
+    padding: 30px;
+
+    border:
+        7px solid
+        white;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            #60c9ec,
+            #4b7dcc
+        );
+
+    box-shadow:
+        0 11px 0
+        #355b98,
+
+        0 25px 50px
+        rgba(0,0,0,.25);
+
+    text-align: center;
+
+}
+
+
+.next-round-icon {
+
+    font-size: 72px;
+
+    animation:
+        nextRoundBounce
+        .7s ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes nextRoundBounce {
+
+    to {
+
+        transform:
+            translateY(-7px)
+            scale(1.05);
+
+    }
+
+}
+
+
+.next-round-label {
+
+    margin-top: 5px;
+
+    color:
+        #ffe56a;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+}
+
+
+.next-round-card h1 {
+
+    margin-top: 3px;
+
+    font-size: 38px;
+
+    line-height: 1.05;
+
+}
+
+
+.next-round-card p {
+
+    margin-top: 8px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+/* ======================================================
+   RESULTS
+======================================================= */
+
+.result-card {
+
+    width:
+        min(
+            510px,
+            93vw
+        );
+
+    padding: 29px;
+
+    border:
+        7px solid
+        white;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            #60c8ec,
+            #4b7ccb
+        );
+
+    box-shadow:
+        0 11px 0
+        #355b97;
+
+    text-align: center;
+
+}
+
+
+.result-card.lost {
+
+    background:
+        linear-gradient(
+            #e65a69,
+            #a83a50
+        );
+
+    box-shadow:
+        0 11px 0
+        #702837;
+
+}
+
+
+.result-icon {
+
+    font-size: 76px;
+
+}
+
+
+.result-label {
+
+    color:
+        #ffe568;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+}
+
+
+.result-card h1 {
+
+    font-size: 41px;
+
+}
+
+
+.result-card p {
+
+    margin-top: 4px;
+
+    font-size: 12px;
+
+}
+
+
+.star-reward {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding:
+        7px 15px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius: 99px;
+
+    background:
+        #f2a131;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+/* ======================================================
+   TABLET
+======================================================= */
+
+@media
+(max-width: 900px) {
+
+    .paper-stack {
+
+        font-size: 110px;
+
+    }
+
+
+    .plant {
+
+        font-size: 110px;
+
+    }
+
+
+    .card-grid.round-3 {
+
+        max-width: 720px;
+
+    }
+
+}
+
+
+/* ======================================================
+   MOBILE
+======================================================= */
+
+@media
+(max-width: 760px) {
+
+
+    body {
+
+        overflow: hidden;
+
+    }
+
+
+    .paper-stack {
+
+        left: -30px;
+
+        top: -25px;
+
+        font-size: 75px;
+
+        opacity: .65;
+
+    }
+
+
+    .gift-box {
+
+        left: 1%;
+
+        bottom: 2%;
+
+        font-size: 42px;
+
+        opacity: .8;
+
+    }
+
+
+    .plant {
+
+        right: -20px;
+
+        bottom: -20px;
+
+        font-size: 80px;
+
+        opacity: .75;
+
+    }
+
+
+    .pencil {
+
+        display: none;
+
+    }
+
+
+    .table-area {
+
+        width: 100vw;
+
+        height: 100dvh;
+
+        padding:
+            100px 7px 12px;
+
+    }
+
+
+    /* HUD */
+
+    .hud {
+
+        left: 5px;
+
+        right: 5px;
+
+        top:
+            max(
+                5px,
+                env(safe-area-inset-top)
+            );
+
+        gap: 4px;
+
+    }
+
+
+    .hud-card {
+
+        min-width: 80px;
+
+        gap: 3px;
+
+        padding:
+            5px 6px;
+
+        border-width: 3px;
+
+        border-radius: 11px;
+
+    }
+
+
+    .hud-icon {
+
+        font-size: 17px;
+
+    }
+
+
+    .hud-card small {
+
+        font-size: 5px;
+
+    }
+
+
+    .hud-card strong {
+
+        font-size: 11px;
+
+    }
+
+
+    .game-title {
+
+        min-width: 106px;
+
+        padding:
+            5px 7px;
+
+        border-width: 3px;
+
+        border-radius: 11px;
+
+    }
+
+
+    .game-title small {
+
+        font-size: 4px;
+
+    }
+
+
+    .game-title strong {
+
+        font-size: 9px;
+
+    }
+
+
+    .game-title span {
+
+        margin-top: 2px;
+
+        font-size: 4px;
+
+    }
+
+
+    /* MEMORY */
+
+    .memorize-banner {
+
+        top: 60px;
+
+        min-width: 150px;
+
+        padding:
+            5px 10px;
+
+        border-width: 3px;
+
+        border-radius: 11px;
+
+    }
+
+
+    .memorize-banner > span {
+
+        font-size: 19px;
+
+    }
+
+
+    .memorize-banner small {
+
+        font-size: 4px;
+
+    }
+
+
+    .memorize-banner strong {
+
+        font-size: 8px;
+
+    }
+
+
+    /* RULE */
+
+    .round-rule {
+
+        top: 95px;
+
+        padding:
+            4px 8px;
+
+        border-width: 2px;
+
+        font-size: 6px;
+
+    }
+
+
+    /* R1 */
+
+    .card-grid.round-1 {
+
+        width:
+            min(
+                94vw,
+                500px
+            );
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+        gap: 8px;
+
+    }
+
+
+    /* R2 */
+
+    .card-grid.round-2 {
+
+        width:
+            min(
+                94vw,
+                500px
+            );
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+        gap: 8px;
+
+    }
+
+
+    /* R3 */
+
+    .card-grid.round-3 {
+
+        width:
+            min(
+                95vw,
+                520px
+            );
+
+        grid-template-columns:
+            repeat(
+                3,
+                1fr
+            );
+
+        gap: 7px;
+
+    }
+
+
+    .memory-card {
+
+        aspect-ratio:
+            1 / .78;
+
+    }
+
+
+    .card-front,
+    .card-back {
+
+        border-width: 4px;
+
+        border-radius: 9px;
+
+        box-shadow:
+            0 4px 0
+            rgba(94,63,41,.22);
+
+    }
+
+
+    .card-back::before {
+
+        inset: 5px;
+
+        border-width: 2px;
+
+    }
+
+
+    .card-back::after {
+
+        font-size:
+            clamp(
+                22px,
+                7vw,
+                32px
+            );
+
+    }
+
+
+    .card-symbol {
+
+        font-size:
+            clamp(
+                27px,
+                8vw,
+                39px
+            );
+
+    }
+
+
+    /* INSTRUCTIONS */
+
+    .instruction-card {
+
+        padding: 14px;
+
+        border-width: 5px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .instruction-icons {
+
+        font-size: 34px;
+
+    }
+
+
+    .difficulty-pill {
+
+        border-width: 2px;
+
+        font-size: 6px;
+
+    }
+
+
+    .instruction-card h1 {
+
+        margin:
+            4px 0 7px;
+
+        font-size: 24px;
+
+    }
+
+
+    .instruction-row {
+
+        margin-top: 5px;
+
+        padding:
+            6px 8px;
+
+    }
+
+
+    .instruction-row span {
+
+        width: 21px;
+
+        flex-basis: 21px;
+
+        font-size: 15px;
+
+    }
+
+
+    .instruction-row p {
+
+        font-size: 7px;
+
+    }
+
+
+    .ready-button {
+
+        min-height: 44px;
+
+        margin-top: 9px;
+
+        border-width: 4px;
+
+        font-size: 12px;
+
+    }
+
+
+    .game-message {
+
+        top: 11%;
+
+        padding:
+            6px 11px;
+
+        border-width: 3px;
+
+        font-size: 7px;
+
+    }
+
+
+    .round-box {
+
+        min-width:
+            min(
+                360px,
+                88vw
+            );
+
+        padding:
+            18px 22px;
+
+        border-width: 5px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .round-box small {
+
+        font-size: 7px;
+
+    }
+
+
+    .round-box h1 {
+
+        font-size: 31px;
+
+    }
+
+
+    .round-box p {
+
+        font-size: 9px;
+
+    }
+
+
+    .next-round-card {
+
+        padding:
+            21px 16px;
+
+        border-width: 5px;
+
+        border-radius: 23px;
+
+    }
+
+
+    .next-round-icon {
+
+        font-size: 52px;
+
+    }
+
+
+    .next-round-card h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .next-round-card p {
+
+        font-size: 9px;
+
+    }
+
+
+    .next-round-button {
+
+        min-height: 47px;
+
+        border-width: 4px;
+
+        font-size: 12px;
+
+    }
+
+}
+
+
+/* ======================================================
+   SHORT MOBILE / LANDSCAPE
+======================================================= */
+
+@media
+(max-width: 760px)
+and
+(max-height: 720px) {
+
+
+    .table-area {
+
+        padding-top: 72px;
+
+    }
+
+
+    .round-rule {
+
+        top: 62px;
+
+    }
+
+
+    .card-grid.round-1,
+    .card-grid.round-2 {
+
+        max-width: 430px;
+
+        grid-template-columns:
+            repeat(
+                4,
+                1fr
+            );
+
+        gap: 6px;
+
+    }
+
+
+    .card-grid.round-3 {
+
+        max-width: 500px;
+
+        grid-template-columns:
+            repeat(
+                5,
+                1fr
+            );
+
+        gap: 6px;
+
+    }
+
+
+    .memory-card {
+
+        aspect-ratio:
+            1 / .74;
+
+    }
+
+
+    .card-symbol {
+
+        font-size:
+            clamp(
+                21px,
+                6vw,
+                30px
+            );
+
+    }
+
+}
