@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Animal Party World
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="./world-loading.css?v=1"
+    >
+</head>
+
+
+<body>
+
+    <main class="loading-screen">
+
+
+        <!-- BACKGROUND SHAPES -->
+
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+
+
+        <!-- MARIO FACE -->
+
+        <div class="mario-wrapper">
+
+            <div class="mario-glow"></div>
+
+            <img
+                class="mario-face"
+                src="./MarioFace.png"
+                alt="Mario"
+            >
+
+        </div>
+
+
+        <!-- TEXT -->
+
+        <section class="loading-content">
+
+            <div class="world-label">
+                ANIMAL PARTY WORLD
+            </div>
+
+            <h1 id="loadingTitle">
+                LOADING
+            </h1>
+
+            <p id="loadingText">
+                Menyiapkan petualanganmu...
+            </p>
+
+
+            <div class="loading-dots">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-wrapper">
+
+            <div class="progress-track">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <script>
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const mode =
+            params.get("mode") || "before";
+
+        const progressFill =
+            document.getElementById(
+                "progressFill"
+            );
+
+        const loadingTitle =
+            document.getElementById(
+                "loadingTitle"
+            );
+
+        const loadingText =
+            document.getElementById(
+                "loadingText"
+            );
+
+
+        let progress =
+            0;
+
+
+        const interval =
+            setInterval(
+                function() {
+
+                    progress +=
+                        Math.floor(
+                            Math.random() * 13
+                        ) + 6;
+
+
+                    if (
+                        progress >
+                        100
+                    ) {
+
+                        progress =
+                            100;
+
+                    }
+
+
+                    progressFill.style.width =
+                        progress + "%";
+
+
+                    if (
+                        progress >=
+                        100
+                    ) {
+
+                        clearInterval(
+                            interval
+                        );
+
+
+                        setTimeout(
+                            function() {
+
+                                if (
+                                    mode ===
+                                    "after"
+                                ) {
+
+                                    showComingSoon();
+
+                                }
+
+                                else {
+
+                                    window.location.href =
+                                        "./world-select.html";
+
+                                }
+
+                            },
+                            500
+                        );
+
+                    }
+
+                },
+                180
+            );
+
+
+        function showComingSoon() {
+
+            document.body.classList.add(
+                "coming-soon-mode"
+            );
+
+
+            loadingTitle.textContent =
+                "SORRY,\nCOMING SOON";
+
+
+            loadingText.textContent =
+                "Animal Party World masih dalam pengembangan.";
+
+
+            document
+                .querySelector(
+                    ".progress-wrapper"
+                )
+                .style.display =
+                    "none";
+
+
+            document
+                .querySelector(
+                    ".loading-dots"
+                )
+                .style.display =
+                    "none";
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,580 @@
+@import url(
+    "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap"
+);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    overflow: hidden;
+
+    font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+
+    background:
+        #e51b23;
+
+    color:
+        white;
+}
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
+
+.loading-screen {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ff4b42 0%,
+            #e51b23 45%,
+            #b90f18 100%
+        );
+}
+
+
+/* =========================================================
+   RED PATTERN
+========================================================= */
+
+.loading-screen::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .12;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0 35px,
+            rgba(255,255,255,.15) 36px 38px
+        );
+}
+
+
+/* =========================================================
+   DECOR CIRCLES
+========================================================= */
+
+.circle {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        8px solid
+        rgba(255,255,255,.08);
+}
+
+
+.circle-1 {
+    width: 420px;
+    height: 420px;
+
+    left: -160px;
+    top: -120px;
+}
+
+
+.circle-2 {
+    width: 260px;
+    height: 260px;
+
+    right: -60px;
+    bottom: -50px;
+}
+
+
+.circle-3 {
+    width: 160px;
+    height: 160px;
+
+    right: 12%;
+    top: 8%;
+}
+
+
+/* =========================================================
+   MARIO IMAGE
+========================================================= */
+
+.mario-wrapper {
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        min(
+            360px,
+            70vw
+        );
+
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+
+.mario-glow {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.28),
+            rgba(255,255,255,.08) 48%,
+            transparent 70%
+        );
+
+    animation:
+        glowPulse
+        1.4s ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes glowPulse {
+
+    from {
+        transform:
+            scale(.9);
+
+        opacity:
+            .65;
+    }
+
+    to {
+        transform:
+            scale(1.08);
+
+        opacity:
+            1;
+    }
+
+}
+
+
+.mario-face {
+    position: relative;
+
+    z-index: 3;
+
+    width: 85%;
+    height: 85%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 20px 20px
+            rgba(92,0,0,.35)
+        );
+
+    animation:
+        marioFloat
+        1.1s ease-in-out
+        infinite alternate;
+}
+
+
+@keyframes marioFloat {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    to {
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+    }
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.loading-content {
+    position: relative;
+
+    z-index: 6;
+
+    text-align: center;
+
+    padding:
+        0 20px;
+}
+
+
+.world-label {
+    color:
+        rgba(255,255,255,.72);
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        4px;
+}
+
+
+.loading-content h1 {
+    margin-top:
+        4px;
+
+    font-size:
+        clamp(
+            52px,
+            8vw,
+            110px
+        );
+
+    font-weight:
+        800;
+
+    line-height:
+        .9;
+
+    white-space:
+        pre-line;
+
+    text-shadow:
+        0 8px 0
+        rgba(118,5,11,.25);
+}
+
+
+.loading-content p {
+    margin-top:
+        12px;
+
+    color:
+        rgba(255,255,255,.78);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.loading-dots {
+    margin-top:
+        18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap:
+        9px;
+}
+
+
+.loading-dots span {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background:
+        white;
+
+    animation:
+        dotBounce
+        .8s ease-in-out
+        infinite alternate;
+}
+
+
+.loading-dots span:nth-child(2) {
+    animation-delay:
+        .15s;
+}
+
+
+.loading-dots span:nth-child(3) {
+    animation-delay:
+        .30s;
+}
+
+
+@keyframes dotBounce {
+
+    from {
+        transform:
+            translateY(0);
+
+        opacity:
+            .4;
+    }
+
+    to {
+        transform:
+            translateY(-10px);
+
+        opacity:
+            1;
+    }
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-wrapper {
+    position: relative;
+
+    z-index: 6;
+
+    width:
+        min(
+            500px,
+            78vw
+        );
+
+    margin-top:
+        30px;
+}
+
+
+.progress-track {
+    width:
+        100%;
+
+    height:
+        15px;
+
+    padding:
+        3px;
+
+    border:
+        3px solid
+        white;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(100,0,0,.22);
+}
+
+
+.progress-fill {
+    width:
+        0%;
+
+    height:
+        100%;
+
+    border-radius:
+        999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff2a4,
+            #ffffff
+        );
+
+    box-shadow:
+        0 0 18px
+        rgba(255,255,255,.42);
+
+    transition:
+        width .18s ease;
+}
+
+
+/* =========================================================
+   COMING SOON MODE
+========================================================= */
+
+body.coming-soon-mode
+.mario-wrapper {
+    transform:
+        scale(.82);
+
+    margin-bottom:
+        5px;
+}
+
+
+body.coming-soon-mode
+.loading-content h1 {
+    font-size:
+        clamp(
+            72px,
+            12vw,
+            180px
+        );
+
+    line-height:
+        .78;
+
+    letter-spacing:
+        -4px;
+}
+
+
+body.coming-soon-mode
+.loading-content p {
+    font-size:
+        clamp(
+            13px,
+            1.4vw,
+            20px
+        );
+
+    margin-top:
+        25px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media
+(max-width: 760px) {
+
+    .mario-wrapper {
+        width:
+            min(
+                270px,
+                70vw
+            );
+
+        margin-bottom:
+            8px;
+    }
+
+
+    .world-label {
+        font-size:
+            7px;
+
+        letter-spacing:
+            2.5px;
+    }
+
+
+    .loading-content h1 {
+        font-size:
+            clamp(
+                48px,
+                16vw,
+                76px
+            );
+    }
+
+
+    .loading-content p {
+        font-size:
+            9px;
+    }
+
+
+    .progress-wrapper {
+        width:
+            78vw;
+
+        margin-top:
+            22px;
+    }
+
+
+    .progress-track {
+        height:
+            12px;
+    }
+
+
+    body.coming-soon-mode
+    .mario-wrapper {
+        width:
+            min(
+                210px,
+                58vw
+            );
+    }
+
+
+    body.coming-soon-mode
+    .loading-content h1 {
+        font-size:
+            clamp(
+                64px,
+                21vw,
+                100px
+            );
+
+        line-height:
+            .82;
+    }
+
+
+    body.coming-soon-mode
+    .loading-content p {
+        font-size:
+            10px;
+    }
+
+}

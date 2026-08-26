@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>
+        Animal Party World
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="./world-select.css?v=20"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     INTRO / AFTER SELECT LOADING
+======================================================= -->
+
+<div
+    class="world-loader show"
+    id="worldLoader"
+>
+
+    <div class="loader-circle circle-one"></div>
+    <div class="loader-circle circle-two"></div>
+    <div class="loader-circle circle-three"></div>
+
+
+    <div class="loader-content">
+
+
+        <!-- MARIO FACE / IMAGE -->
+
+        <div
+            class="loader-mario-wrap"
+            id="loaderMarioWrap"
+        >
+
+            <div class="loader-mario-glow"></div>
+
+
+            <img
+                id="loaderMario"
+                class="loader-mario"
+                src="./MarioFace.png"
+                alt="Mario"
+                onerror="this.src='./Mario.png'"
+            >
+
+        </div>
+
+
+
+        <!-- NORMAL LOADING CONTENT -->
+
+        <div
+            class="normal-loading"
+            id="normalLoading"
+        >
+
+            <div class="loader-label">
+                ANIMAL PARTY WORLD
+            </div>
+
+
+            <h1>
+                LOADING
+            </h1>
+
+
+            <p id="loaderText">
+                Menyiapkan petualanganmu...
+            </p>
+
+
+            <div class="loading-dots">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div class="loader-progress">
+
+                <div
+                    class="loader-progress-fill"
+                    id="loaderProgressFill"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- COMING SOON -->
+
+        <div
+            class="coming-soon-content"
+            id="comingSoonContent"
+        >
+
+            <div class="coming-small">
+                ANIMAL PARTY WORLD
+            </div>
+
+
+            <h1>
+                SORRY,
+                <br>
+                COMING SOON
+            </h1>
+
+
+            <p>
+                World Mode masih dalam pengembangan.
+                Karakter pilihanmu sudah tersimpan!
+            </p>
+
+
+            <div
+                class="selected-character-pill"
+                id="selectedCharacterPill"
+            >
+                ⭐ MARIO SELECTED
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     DARK BACKGROUND OVERLAY
+======================================================= -->
+
+<div class="background-overlay"></div>
+
+
+
+<!-- ======================================================
+     CHARACTER SELECT
+======================================================= -->
+
+<main
+    class="select-screen"
+    id="selectScreen"
+>
+
+
+    <!-- HEADER -->
+
+    <header class="top-header">
+
+        <div class="title-area">
+
+            <span class="small-title">
+                ANIMAL PARTY WORLD
+            </span>
+
+
+            <h1>
+                PILIH KARAKTER
+            </h1>
+
+
+            <p>
+                Pilih karakter yang akan menemanimu berpetualang.
+            </p>
+
+        </div>
+
+
+        <div class="mode-badge">
+            CHARACTER SELECT
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         CONTENT
+    =================================================== -->
+
+    <section class="main-content">
+
+
+        <!-- ==============================================
+             LEFT
+        =============================================== -->
+
+        <section class="character-selection">
+
+
+            <div class="section-label">
+                SELECT PLAYER
+            </div>
+
+
+            <div
+                class="character-grid"
+                id="characterGrid"
+            ></div>
+
+
+            <div class="select-hint">
+                Klik karakter untuk memilih
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==============================================
+             RIGHT
+        =============================================== -->
+
+        <section class="preview-section">
+
+
+            <div
+                class="giant-name"
+                id="giantName"
+            >
+                MARIO
+            </div>
+
+
+
+            <div class="character-stage">
+
+
+                <div class="character-glow"></div>
+
+
+                <img
+                    id="previewImage"
+                    class="preview-image"
+                    src="./Mario.png"
+                    alt="Selected Character"
+                >
+
+
+                <div class="character-shadow"></div>
+
+
+            </div>
+
+
+
+            <!-- INFO -->
+
+            <div class="character-info">
+
+
+                <div
+                    class="role"
+                    id="previewRole"
+                >
+                    ALL-ROUNDER
+                </div>
+
+
+                <h2 id="previewName">
+                    Mario
+                </h2>
+
+
+                <p id="previewDescription">
+                    Petualang pemberani dengan kemampuan yang seimbang.
+                </p>
+
+
+                <button
+                    id="chooseButton"
+                    class="choose-button"
+                    type="button"
+                >
+                    PILIH MARIO
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ======================================================
+     MOBILE BUTTON
+======================================================= -->
+
+<div
+    class="mobile-bottom"
+    id="mobileBottom"
+>
+
+
+    <div class="mobile-character-info">
+
+        <small>
+            KARAKTER TERPILIH
+        </small>
+
+        <strong id="mobileCharacterName">
+            Mario
+        </strong>
+
+    </div>
+
+
+    <button
+        id="mobileChooseButton"
+        type="button"
+    >
+        PILIH
+    </button>
+
+
+</div>
+
+
+
+<script src="./world-select.js?v=20"></script>
+
+
+</body>
+
+</html>
