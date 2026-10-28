@@ -1,6 +1,6 @@
 // ==========================================================
 // MEMORY MIX
-// 3 ROUNDS / 3 TOTAL LIVES / SAME PATTERN ON WRONG ANSWER
+// 2 ROUNDS / 3 TOTAL LIVES / SAME PATTERN ON WRONG ANSWER
 // ==========================================================
 
 
@@ -680,7 +680,7 @@ async function startRound(
 
     roundText.textContent =
         round +
-        " / 3";
+        " / 2";
 
 
     await showCurrentSequence();
@@ -934,7 +934,7 @@ symbolButtons.forEach(
 async function completeRound() {
 
     if (
-        round >= 3
+        round >= 2
     ) {
 
         showFeedback(
@@ -1123,6 +1123,15 @@ function rewardPlayer() {
     );
 
 
+    if (!Number.isFinite(stars)) {
+        stars = 0;
+    }
+
+    if (!Number.isFinite(level) || level < 1) {
+        level = 1;
+    }
+
+    stars = ((stars % 3) + 3) % 3;
     stars++;
 
 

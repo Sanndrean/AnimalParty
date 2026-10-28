@@ -4,9 +4,8 @@
 //
 // ROUND 1 = 12 CARDS / 6 PAIRS / 30 SEC
 // ROUND 2 = 12 CARDS / 6 PAIRS / 30 SEC
-// ROUND 3 = 15 CARDS / 5 TRIOS / 50 SEC
 //
-// STAR ONLY AFTER ROUND 3
+// STAR ONLY AFTER ROUND 2
 // ==========================================================
 
 
@@ -70,31 +69,6 @@ const rounds = {
     },
 
 
-    // ======================================================
-    // ROUND 3
-    //
-    // 15 cards cannot make complete pairs,
-    // so this round uses 5 groups of 3.
-    // ======================================================
-
-    3: {
-
-        cardCount:
-            15,
-
-        groupCount:
-            5,
-
-        matchSize:
-            3,
-
-        time:
-            50,
-
-        label:
-            "SET"
-
-    }
 };
 
 
@@ -779,40 +753,9 @@ async function showRoundIntro() {
         ];
 
 
-    if (
-        currentRound ===
-        3
-    ) {
-
-        roundSmallText.textContent =
-            "RONDE TERAKHIR";
-
-
-        roundBigText.textContent =
-            "FINAL ROUND";
-
-
-        roundDescription.textContent =
-            "15 KARTU • 5 SET • COCOKKAN 3";
-
-    }
-
-    else {
-
-        roundSmallText.textContent =
-            "BERSIAP!";
-
-
-        roundBigText.textContent =
-            "RONDE "
-            +
-            currentRound;
-
-
-        roundDescription.textContent =
-            "12 KARTU • 6 PASANGAN";
-
-    }
+    roundSmallText.textContent = "BERSIAP!";
+    roundBigText.textContent = "RONDE " + currentRound;
+    roundDescription.textContent = "12 KARTU • 6 PASANGAN";
 
 
     roundOverlay.classList.add(
@@ -930,24 +873,7 @@ async function memorizePhase() {
         true;
 
 
-    if (
-        currentRound ===
-        3
-    ) {
-
-        showMessage(
-            "🧠 CARI 3 KARTU YANG SAMA!"
-        );
-
-    }
-
-    else {
-
-        showMessage(
-            "🧠 CARI PASANGANNYA!"
-        );
-
-    }
+    showMessage("🧠 CARI PASANGANNYA!");
 
 
     startGameTimer();
@@ -1181,26 +1107,7 @@ async function checkSelectedCards() {
             [];
 
 
-        if (
-            currentRound ===
-            3
-        ) {
-
-            showMessage(
-                "✨ 3 KARTU COCOK!",
-                "good"
-            );
-
-        }
-
-        else {
-
-            showMessage(
-                "✨ PASANGAN BENAR!",
-                "good"
-            );
-
-        }
+        showMessage("✨ PASANGAN BENAR!", "good");
 
 
         await wait(
@@ -1236,26 +1143,7 @@ async function checkSelectedCards() {
     );
 
 
-    if (
-        currentRound ===
-        3
-    ) {
-
-        showMessage(
-            "❌ BUKAN 3 KARTU YANG SAMA!",
-            "bad"
-        );
-
-    }
-
-    else {
-
-        showMessage(
-            "❌ BUKAN PASANGAN!",
-            "bad"
-        );
-
-    }
+    showMessage("❌ BUKAN PASANGAN!", "bad");
 
 
     await wait(
@@ -1346,7 +1234,7 @@ async function checkRoundComplete() {
 
 
     // ======================================================
-    // ROUND 1 & 2
+    // ROUND 1
     //
     // DO NOT:
     // - WIN
@@ -1355,7 +1243,7 @@ async function checkRoundComplete() {
 
     if (
         currentRound <
-        3
+        2
     ) {
 
         showNextRoundPopup();
@@ -1368,14 +1256,14 @@ async function checkRoundComplete() {
 
 
     // ======================================================
-    // ROUND 3
+    // ROUND 2
     //
     // ONLY NOW WIN.
     // ======================================================
 
     if (
         currentRound ===
-        3
+        2
     ) {
 
         winGame();
@@ -1407,25 +1295,6 @@ function showNextRoundPopup() {
 
         nextRoundDescription.textContent =
             "Bagus! Ronde 2 masih memiliki 12 kartu, tapi semua posisi akan diacak lagi.";
-
-    }
-
-
-    else if (
-        currentRound ===
-        2
-    ) {
-
-        nextRoundIcon.textContent =
-            "🔥";
-
-
-        nextRoundTitle.textContent =
-            "RONDE 2 SELESAI!";
-
-
-        nextRoundDescription.textContent =
-            "Final Round punya 15 kartu. Kali ini kamu harus mencari 3 kartu yang sama!";
 
     }
 
@@ -1526,29 +1395,15 @@ async function startRound() {
         +
         currentRound
         +
-        " / 3";
+        " / 2";
 
 
     /*
      * Instruction chip above cards.
      */
 
-    if (
-        currentRound ===
-        3
-    ) {
-
-        roundRule.textContent =
-            "🔥 Cocokkan 3 kartu yang sama";
-
-    }
-
-    else {
-
-        roundRule.textContent =
-            "🧠 Cocokkan 2 kartu yang sama";
-
-    }
+    roundRule.textContent =
+        "🧠 Cocokkan 2 kartu yang sama";
 
 
     createDeck();
@@ -1658,7 +1513,7 @@ function stopGame() {
 // ==========================================================
 // WIN GAME
 //
-// ONLY ROUND 3 IS ALLOWED TO CALL THIS.
+// ONLY ROUND 2 IS ALLOWED TO CALL THIS.
 // ==========================================================
 
 function winGame() {
@@ -1669,7 +1524,7 @@ function winGame() {
 
     if (
         currentRound !==
-        3
+        2
     ) {
 
         console.warn(
@@ -1692,7 +1547,7 @@ function winGame() {
 
 
     // ======================================================
-    // ONLY AFTER ALL 3 ROUNDS:
+    // ONLY AFTER BOTH ROUNDS:
     // GIVE +1 STAR
     // ======================================================
 
@@ -1723,7 +1578,7 @@ function winGame() {
 
 
     resultDescription.textContent =
-        "Hebat! Kamu berhasil menyelesaikan ketiga ronde Card Match!";
+        "Hebat! Kamu berhasil menyelesaikan dua ronde Card Match!";
 
 
     starReward.style.display =
@@ -1854,9 +1709,7 @@ function giveStar() {
 
 
     if (
-        Number.isNaN(
-            stars
-        )
+        !Number.isFinite(stars)
     ) {
 
         stars =
@@ -1881,6 +1734,7 @@ function giveStar() {
      * ONE STAR FOR THE WHOLE MINIGAME.
      */
 
+    stars = ((stars % 3) + 3) % 3;
     stars++;
 
 
@@ -1984,7 +1838,7 @@ timerText.textContent =
 
 
 roundHud.textContent =
-    "RONDE 1 / 3";
+    "RONDE 1 / 2";
 
 
 roundRule.textContent =
@@ -1998,5 +1852,5 @@ renderCards();
 
 
 console.log(
-    "🃏 CARD MATCH 3 ROUNDS READY"
+    "🃏 CARD MATCH 2 ROUNDS READY"
 );

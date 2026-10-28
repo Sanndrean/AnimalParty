@@ -2078,13 +2078,13 @@ button:disabled {
 .xp-popup {
     position: fixed;
 
-    z-index: 5500;
+    z-index: 9500;
 
     left: 50%;
-    top: 105px;
+    top: 50%;
 
     transform:
-        translate(-50%, -20px);
+        translate(-50%, calc(-50% - 16px));
 
     padding:
         12px 22px;
@@ -2119,7 +2119,7 @@ button:disabled {
 
 .xp-popup.show {
     transform:
-        translate(-50%, 0);
+        translate(-50%, -50%);
 
     opacity: 1;
 }

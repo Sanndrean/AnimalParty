@@ -54,11 +54,8 @@
 
 
     // ======================================================
-    // FORCE NEW MUSIC SOURCE
+    // Restore the same song position after each page in the game flow.
     // ======================================================
-
-    music.pause();
-
 
     music.src =
         MUSIC_PATH;
@@ -140,6 +137,47 @@
 
     music.muted =
         savedMuted === "true";
+
+    const MUSIC_TIME_KEY = "animalPartyMusicTime";
+    let restoredPosition = false;
+    const musicMetadataReady = music.readyState >= 1
+        ? Promise.resolve()
+        : new Promise(function(resolve) {
+            music.addEventListener("loadedmetadata", resolve, { once: true });
+            music.addEventListener("error", resolve, { once: true });
+        });
+
+    function saveMusicPosition() {
+        try {
+            if (Number.isFinite(music.currentTime) && music.currentTime > 0) {
+                sessionStorage.setItem(MUSIC_TIME_KEY, String(music.currentTime));
+            }
+        } catch (error) {
+            // Audio remains usable if browser storage is unavailable.
+        }
+    }
+
+    function restoreMusicPosition() {
+        if (restoredPosition || !Number.isFinite(music.duration) || music.duration <= 0) {
+            return;
+        }
+
+        restoredPosition = true;
+        let savedTime = 0;
+        try {
+            savedTime = Number(sessionStorage.getItem(MUSIC_TIME_KEY) || 0);
+        } catch (error) {
+            savedTime = 0;
+        }
+
+        if (Number.isFinite(savedTime) && savedTime > 0) {
+            music.currentTime = savedTime % music.duration;
+        }
+    }
+
+    music.addEventListener("loadedmetadata", restoreMusicPosition, { once: true });
+    music.addEventListener("timeupdate", saveMusicPosition);
+    window.addEventListener("pagehide", saveMusicPosition);
 
 
     // ======================================================
@@ -233,6 +271,9 @@
 
         try {
 
+            await musicMetadataReady;
+            restoreMusicPosition();
+
             await music.play();
 
 
@@ -269,7 +310,7 @@
     // ======================================================
 
     function tryAutoPlay() {
-
+        restoreMusicPosition();
         playMusic();
 
     }

@@ -1,0 +1,155 @@
+/* Shared Animal Party visual system. Game artwork stays game-specific; controls and panels share one visual language. */
+:root {
+  --party-forest: #2c6843;
+  --party-leaf: #6fb766;
+  --party-sky: #bfe7f4;
+  --party-cream: #fff8e9;
+  --party-orange: #fa8242;
+  --party-orange-dark: #c85532;
+  --party-ink: #34483a;
+  --party-shadow: 0 10px 26px rgba(36, 59, 40, .17);
+}
+
+html { background: var(--party-sky); }
+body { font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif; }
+button, input, select { font: inherit; }
+button { cursor: pointer; transition: transform .16s ease, filter .16s ease, box-shadow .16s ease; }
+button:focus-visible, a:focus-visible { outline: 3px solid #ffc67c !important; outline-offset: 3px; }
+button:hover:not(:disabled) { filter: none !important; }
+button:active:not(:disabled) { transform: translateY(1px) scale(.99); }
+
+/* The app uses the same sunny sky and meadow across its game worlds. */
+.memory-bg, .math-world, .rps-world {
+  background: linear-gradient(180deg, #74c9ee 0%, #c9eff7 57%, #9bce77 57%, #62a75a 100%) !important;
+}
+.intro-background {
+  background-image: linear-gradient(180deg, rgba(41,91,64,.08), rgba(30,73,43,.22)), url("Lobby-bg.png") !important;
+  background-size: cover !important;
+  background-position: center 56% !important;
+}
+.intro-cloud, .intro-hill, .intro-ground { visibility: hidden; }
+.house-world {
+  background: linear-gradient(180deg, rgba(36,88,73,.02), rgba(28,67,51,.16)), url("home-park-bg.png") center 56% / cover no-repeat !important;
+}
+.house-world > * { display: none !important; }
+.lobby-background { filter: saturate(.88) brightness(1.03); }
+.background-overlay { background: linear-gradient(180deg, rgba(255,250,234,.08), rgba(48,94,55,.2)) !important; }
+
+/* Reusable panels */
+.mode-card, .loading-card, .character-header,
+.profile-panel, .currency-panel, .mode-panel, .side-menu,
+.game-card, .level-card, .player-card, .timer-card, .score-card,
+.round-card, .hud-card, .question-card, .instruction-card,
+.instruction-popup, .result-card, .ready-card, .popup, .round-popup,
+.difficulty-card, .game-message {
+  border-radius: 20px !important;
+  box-shadow: var(--party-shadow) !important;
+}
+.loading-card, .character-header { box-shadow: none !important; }
+.profile-panel, .currency-panel, .mode-panel, .side-menu,
+.timer-card, .player-card, .score-card, .hud-card {
+  border: 1px solid rgba(255,255,255,.8);
+}
+
+/* One primary action style across start, lobby, and minigames */
+.play-button, .character-continue, .primary-button, .ready-button,
+.result-button, .main-button, .submit-button, .continue-button,
+.card-play-button, .play-match-button, .next-round-button {
+  border: 2px solid rgba(255,255,255,.92) !important;
+  border-radius: 16px !important;
+  background: linear-gradient(180deg, #ff9a58, var(--party-orange)) !important;
+  color: #fffdf7 !important;
+  box-shadow: 0 5px 0 var(--party-orange-dark), 0 9px 18px rgba(56,54,37,.17) !important;
+  font-weight: 900;
+}
+.play-button:hover:not(:disabled), .character-continue:hover:not(:disabled),
+.primary-button:hover:not(:disabled), .ready-button:hover:not(:disabled),
+.result-button:hover:not(:disabled), .main-button:hover:not(:disabled),
+.submit-button:hover:not(:disabled), .continue-button:hover:not(:disabled),
+.card-play-button:hover:not(:disabled), .play-match-button:hover:not(:disabled),
+.next-round-button:hover:not(:disabled) {
+  transform: none !important;
+  filter: none !important;
+  box-shadow: 0 5px 0 var(--party-orange-dark), 0 9px 18px rgba(56,54,37,.17) !important;
+}
+.character-continue:hover:not(:disabled), .character-continue:active {
+  transform: translateX(-50%) !important;
+}
+
+/* Keep interactive controls readable and tactile across every minigame. */
+.answer-button, .symbol-button, .direction-button, .choice-button,
+.move-button, .number-button, .choose-button, .filter-button,
+.small-action, .side-button, .hud-button, .back-button,
+.edit-name-button, .popup-button, .secondary-popup-button,
+.card-ban-button, .unban-all-button, .lobby-castle-button {
+  border-radius: 14px;
+  transition: transform .16s ease, filter .16s ease, box-shadow .16s ease, background-color .16s ease;
+}
+.answer-button, .symbol-button, .direction-button, .choice-button,
+.move-button, .number-button, .choose-button {
+  border: 2px solid rgba(255,255,255,.9);
+  box-shadow: 0 4px 0 rgba(44,104,67,.28), 0 7px 16px rgba(36,59,40,.12);
+}
+.answer-button:hover:not(:disabled), .symbol-button:hover:not(:disabled),
+.direction-button:hover:not(:disabled), .choice-button:hover:not(:disabled),
+.move-button:hover:not(:disabled), .number-button:hover:not(:disabled),
+.choose-button:hover:not(:disabled) {
+  filter: none !important;
+}
+.small-action, .side-button, .hud-button, .back-button,
+.edit-name-button, .popup-button, .secondary-popup-button,
+.card-ban-button, .unban-all-button, .lobby-castle-button,
+.filter-button {
+  border: 1px solid rgba(255,255,255,.78);
+  box-shadow: 0 4px 12px rgba(36,59,40,.12);
+}
+
+/* Home game library */
+.game-card { border: 1px solid rgba(255,255,255,.68); }
+.game-card h2 { color: var(--party-forest); }
+.filter-button.active, .filter-button.selected { background: var(--party-forest) !important; color: #fff !important; }
+
+/* Lobby popups stay centered in the viewport and clear the mode chooser. */
+.modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9000 !important;
+  display: none;
+  place-items: center !important;
+  padding: 16px !important;
+  background: rgba(39, 86, 65, .16) !important;
+  backdrop-filter: none !important;
+}
+.modal-overlay.show {
+  display: grid !important;
+}
+.modal-overlay > .modal {
+  width: min(560px, calc(100vw - 32px)) !important;
+  max-height: min(82dvh, 760px) !important;
+  margin: 0 !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: none !important;
+}
+
+/* Flatten faint glass tiles inside lobby popups; keep one clear dialog surface. */
+.modal-card, .reward-card, .shop-item, .inventory-item,
+.achievement-item, .update-item, .social-card, .setting-row, .daily-day {
+  border-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.profile-panel, .currency-panel, .mode-panel, .side-button {
+  backdrop-filter: none !important;
+}
+
+/* A clean full-screen loader avoids floating translucent box shapes. */
+.mode-transition {
+  background: linear-gradient(145deg, #60c9ef, #746bda) !important;
+}
+.mode-transition::before, .mode-transition::after { display: none !important; }
+.mode-transition.show .transition-bar div { animation-duration: .68s !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

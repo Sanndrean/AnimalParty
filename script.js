@@ -653,11 +653,11 @@ async function startLoading(
 
 
     loadingTime.textContent =
-        "10s";
+        "2s";
 
 
     const duration =
-        10000;
+        1500;
 
 
     const start =
@@ -765,7 +765,7 @@ async function startLoading(
         // ==========================================
 
         if (
-            seconds >= 8
+            seconds > 1
         ) {
 
             loadingStatus.textContent =
@@ -779,7 +779,7 @@ async function startLoading(
 
 
         else if (
-            seconds >= 6
+            seconds === 1
         ) {
 
             loadingStatus.textContent =
@@ -788,52 +788,6 @@ async function startLoading(
 
             loadingSubtitle.textContent =
                 "Building the party room...";
-
-        }
-
-
-        else if (
-            seconds >= 4
-        ) {
-
-            loadingStatus.textContent =
-                "Almost ready...";
-
-
-            loadingSubtitle.textContent =
-                "Gathering the animals 🐾";
-
-        }
-
-
-        else if (
-            seconds === 3
-        ) {
-
-            loadingTitle.textContent =
-                "READY!";
-
-
-            loadingStatus.textContent =
-                "Ready!";
-
-        }
-
-
-        else if (
-            seconds <= 2
-        ) {
-
-            loadingTitle.textContent =
-                "CHOOSE YOUR CHARACTER";
-
-
-            loadingSubtitle.textContent =
-                "Let's party! 🎉";
-
-
-            loadingStatus.textContent =
-                "Opening character select...";
 
         }
 
@@ -878,9 +832,7 @@ async function startLoading(
         "Choose your character...";
 
 
-    await wait(
-        550
-    );
+    await wait(500);
 
 
     introScreen.classList.add(

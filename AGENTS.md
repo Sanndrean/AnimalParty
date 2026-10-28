@@ -1,0 +1,1 @@
+Before changing this project, read `CODE_MEMORY.md` for the original flow, file map, and compatibility notes. Keep changes within this project and preserve the original gameplay unless the user asks otherwise.

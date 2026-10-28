@@ -211,11 +211,11 @@ const achievements = [
     },
 
     {
-        id: "number",
-        icon: "🔢",
-        name: "Number King",
-        description: "Win Number Reorganizer"
-    }
+        id: "cardmatch",
+        icon: "🃏",
+        name: "Card Collector",
+        description: "Win Card Match"
+    },
 
 ];
 
@@ -702,14 +702,31 @@ const transitionTitle =
 
 function getCoins() {
 
-    return parseInt(
-        storage.getItem(
-            "animalPartyCoins"
-        )
-        ||
-        "0",
+    const value = parseInt(storage.getItem("animalPartyCoins") || "0", 10);
+    const coins = Number.isFinite(value) && value >= 0 ? value : 0;
+    if (coins !== value) {
+        storage.setItem("animalPartyCoins", String(coins));
+    }
+    return coins;
+
+}
+
+
+function getStars() {
+
+    const stored = parseInt(
+        storage.getItem("playerStars") || "0",
         10
     );
+    const stars = Number.isFinite(stored)
+        ? ((stored % 3) + 3) % 3
+        : 0;
+
+    if (String(stars) !== String(stored)) {
+        storage.setItem("playerStars", String(stars));
+    }
+
+    return stars;
 
 }
 
@@ -1095,15 +1112,7 @@ function renderLobby() {
         getCurrentLevelXP();
 
 
-    const stars =
-        parseInt(
-            storage.getItem(
-                "playerStars"
-            )
-            ||
-            "0",
-            10
-        );
+    const stars = getStars();
 
 
     if (profileIcon) {
@@ -3322,7 +3331,7 @@ function enterMode(
                 destination;
 
         },
-        850
+        680
     );
 
 }

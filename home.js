@@ -1,6 +1,6 @@
 // ==========================================================
 // ANIMAL PARTY HOME
-// BAN SYSTEM + 4 FUTURE GAME SLOTS
+// BAN SYSTEM + 2 FUTURE GAME SLOTS
 // ==========================================================
 
 
@@ -221,6 +221,33 @@ const miniGames = [
 
 
     // ======================================================
+    {
+
+        id:
+            "card-match",
+
+        name:
+            "Card Match",
+
+        icon:
+            "🃏🧠",
+
+        file:
+            "cardmatch.html",
+
+        difficulty:
+            "🟢 EASY ⭐",
+
+        difficultyKey:
+            "easy",
+
+        description:
+            "Match the cards and clear three rounds before time runs out."
+
+    },
+
+
+    // ======================================================
     // BEGINNER
     // ======================================================
 
@@ -387,37 +414,6 @@ const miniGames = [
 
 
     // ======================================================
-    // IMPOSSIBLE
-    // ======================================================
-
-    {
-
-        id:
-            "number-reorganizer",
-
-        name:
-            "Number Reorganizer",
-
-        icon:
-            "🔢🧩",
-
-        file:
-            "numbergame.html",
-
-        difficulty:
-            "🔴 IMPOSSIBLE ⭐⭐⭐⭐",
-
-        difficultyKey:
-            "impossible",
-
-        description:
-            "Organize 30→1, then survive five number finding rounds."
-
-    },
-
-
-
-    // ======================================================
     // DEADLY
     // ======================================================
 
@@ -452,7 +448,7 @@ const miniGames = [
 
 
 // ==========================================================
-// 4 FUTURE GAME SLOTS
+// 2 FUTURE GAME SLOTS
 //
 // NANTI KALAU MAU TAMBAH GAME:
 //
@@ -490,93 +486,19 @@ const futureMiniGames = [
     // FUTURE SLOT 1
     // ======================================================
 
-   {
-
-    slot:
-        1,
-
-    enabled:
-        true,
-
-    id:
-        "kitchen-rush",
-
-    name:
-        "Kitchen Rush",
-
-    icon:
-        "👨‍🍳🍳",
-
-    file:
-        "cookinggame.html",
-
-    difficulty:
-        "🟠 HARD ⭐⭐⭐",
-
-    difficultyKey:
-        "hard",
-
-    description:
-        "Cook orders and serve 3 customers before the kitchen closes."
-
-},
-
-
-
-    // ======================================================
-    // FUTURE SLOT 2
-    // ======================================================
-
- {
-
-    slot:
-        2,
-
-    enabled:
-        true,
-
-    id:
-        "card-match",
-
-    name:
-        "Card Match",
-
-    icon:
-        "🃏🧠",
-
-    file:
-        "cardmatch.html",
-
-    difficulty:
-        "🟢 EASY ⭐",
-
-    difficultyKey:
-        "easy",
-
-    description:
-        "Hafalkan kartu dan selesaikan 3 ronde matching sebelum waktu habis."
-
-},
-
-
-
-    // ======================================================
-    // FUTURE SLOT 3
-    // ======================================================
-
     {
 
         slot:
-            3,
+            1,
 
         enabled:
             false,
 
         id:
-            "future-game-3",
+            "future-game-1",
 
         name:
-            "Future Game 3",
+            "Future Game 1",
 
         icon:
             "➕",
@@ -598,22 +520,22 @@ const futureMiniGames = [
 
 
     // ======================================================
-    // FUTURE SLOT 4
+    // FUTURE SLOT 2
     // ======================================================
 
     {
 
         slot:
-            4,
+            2,
 
         enabled:
             false,
 
         id:
-            "future-game-4",
+            "future-game-2",
 
         name:
-            "Future Game 4",
+            "Future Game 2",
 
         icon:
             "➕",
@@ -1206,24 +1128,15 @@ function getStars() {
         );
 
 
-    if (
-        Number.isNaN(
-            value
-        )
-        ||
-        value <
-        0
-    ) {
+    const stars = Number.isFinite(value)
+        ? ((value % 3) + 3) % 3
+        : 0;
 
-        return 0;
-
+    if (stars !== value) {
+        storage.setItem("playerStars", String(stars));
     }
 
-
-    return (
-        value %
-        3
-    );
+    return stars;
 
 
 }
@@ -2074,6 +1987,11 @@ async function launchGame(
         game.id
     );
 
+    sessionStorage.setItem(
+        "animalPartyRewardCoinsOnReturn",
+        "true"
+    );
+
 
     await wait(
         1350
@@ -2608,7 +2526,7 @@ function renderLibrary() {
 
 
     // ======================================================
-    // SHOW 4 FUTURE SLOTS ONLY IN ALL
+    // SHOW 2 FUTURE SLOTS ONLY IN ALL
     //
     // Disabled future slots remain visible.
     // Once enabled = true, it becomes a real game card
@@ -3069,6 +2987,23 @@ backToLobbyButton.addEventListener(
 // WIN ANIMATION
 // ==========================================================
 
+function awardPlayedGameCoins() {
+
+    if (sessionStorage.getItem("animalPartyRewardCoinsOnReturn") !== "true") {
+        return;
+    }
+
+    sessionStorage.removeItem("animalPartyRewardCoinsOnReturn");
+
+    const currentCoins = parseInt(storage.getItem("animalPartyCoins") || "0", 10);
+    const safeCoins = Number.isFinite(currentCoins) && currentCoins >= 0
+        ? currentCoins
+        : 0;
+
+    storage.setItem("animalPartyCoins", String(safeCoins + 10));
+
+}
+
 async function checkWinAnimation() {
 
 
@@ -3086,7 +3021,6 @@ async function checkWinAnimation() {
         return;
 
     }
-
 
     sessionStorage.removeItem(
         "justWon"
@@ -3123,6 +3057,8 @@ function initializeHome() {
 
 
     loadCharacter();
+
+    awardPlayedGameCoins();
 
 
     renderHUD();
