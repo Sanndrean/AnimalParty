@@ -1,6 +1,6 @@
 // ==========================================================
 // SHEEP CENSUS
-// DEADLY
+// IMPOSSIBLE
 // ==========================================================
 
 
@@ -298,51 +298,17 @@ const roundSettings = {
 
     3: {
 
-        name: "CHAOS",
+        name: "IMPOSSIBLE",
 
         minimum: 14,
 
-        maximum: 27,
+        maximum: 30,
 
-        distractors: 4,
+        distractors: 5,
 
-        spawnGap: 490,
+        spawnGap: 450,
 
-        travelTime: 3500
-
-    },
-
-
-    4: {
-
-        name: "DANGER",
-
-        minimum: 24,
-
-        maximum: 40,
-
-        distractors: 6,
-
-        spawnGap: 330,
-
-        travelTime: 2850
-
-    },
-
-
-    5: {
-
-        name: "DEADLY",
-
-        minimum: 36,
-
-        maximum: 54,
-
-        distractors: 8,
-
-        spawnGap: 265,
-
-        travelTime: 2550
+        travelTime: 3300
 
     }
 
@@ -458,7 +424,7 @@ function clampGuess(
     return Math.max(
         2,
         Math.min(
-            54,
+            30,
             Math.round(
                 value
             )
@@ -493,7 +459,7 @@ function updateHUD() {
     roundText.textContent =
         currentRound
         +
-        " / 5";
+        " / 3";
 
 
     if (
@@ -523,7 +489,7 @@ function updateHUD() {
 
 
     roundBadge.textContent =
-        "⚫ DEADLY · ROUND "
+        "🔴 IMPOSSIBLE · ROUND "
         +
         currentRound
         +
@@ -1109,11 +1075,11 @@ guessNumber.addEventListener(
 
 
         if (
-            value > 54
+            value > 30
         ) {
 
             value =
-                54;
+                30;
 
         }
 
@@ -1464,7 +1430,7 @@ async function checkAnswer() {
 
         if (
             currentRound ===
-            5
+            3
         ) {
 
             winGame();
@@ -1575,7 +1541,7 @@ function winGame() {
 
 
     resultBadge.textContent =
-        "DEADLY COMPLETE";
+        "IMPOSSIBLE COMPLETE";
 
 
     resultTitle.textContent =
@@ -1587,7 +1553,7 @@ function winGame() {
 
 
     resultText.textContent =
-        "You survived all 5 rounds!";
+        "You survived all 3 rounds!";
 
 
     rewardBox.classList.remove(

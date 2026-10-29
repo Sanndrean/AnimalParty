@@ -10,7 +10,7 @@ A local browser party game based on the original Animal Party project.
 
 ## Minigame library
 
-The active games are Monkey Bash, Sky Jump, Card Match, Memory Mix, Rock Paper Scissors, Red Light Green Light, Find The Strawberry, Speed Sprint, Math Quiz, and Sheep Census. Cooking Party and Number Organizer are not included.
+The active games are Colour Stack, Monkey Bash, Sky Jump, Card Match, Memory Mix, Rock Paper Scissors, Red Light Green Light, Find The Strawberry, Speed Sprint, Math Quiz, and Sheep Census. Sheep Census is an Impossible three-round challenge. Cooking Party and Number Organizer are not included.
 
 ## Project notes
 
@@ -20,4 +20,5 @@ The active games are Monkey Bash, Sky Jump, Card Match, Memory Mix, Rock Paper S
 - Card Match and Memory Mix each have two rounds. Returning to the library after a launched minigame adds 10 coins.
 - Background music restores its playback position as the game moves between pages.
 - Random Match filters and ban controls are preserved.
+- Colour Stack has a three-second start countdown, a 60-second timer, fixed-size blocks, and a red warning pulse for the final 10 seconds. Move top blocks to any stack with space; a win rewards a star.
 - This refresh is a separate copy; it does not overwrite the original XAMPP project.

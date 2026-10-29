@@ -170,6 +170,32 @@ const miniGames = [
     {
 
         id:
+            "colour-stack",
+
+        name:
+            "Colour Stack",
+
+        icon:
+            "🎨",
+
+        file:
+            "colourstack.html",
+
+        difficulty:
+            "🟢 EASY ⭐",
+
+        difficultyKey:
+            "easy",
+
+        description:
+            "Sort the mixed colour blocks into matching stacks before time runs out."
+
+    },
+
+
+    {
+
+        id:
             "monkey-bash",
 
         name:
@@ -432,13 +458,13 @@ const miniGames = [
             "sheepcount.html",
 
         difficulty:
-            "⚫ DEADLY ⭐⭐⭐⭐⭐",
+            "🔴 IMPOSSIBLE ⭐⭐⭐⭐",
 
         difficultyKey:
-            "deadly",
+            "impossible",
 
         description:
-            "Count only the sheep, ignore distractions, and survive five rounds."
+            "Count only the sheep, ignore distractions, and survive three rounds."
 
     }
 

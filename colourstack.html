@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Colour Stack | Sanndrean's Party</title>
+  <link rel="stylesheet" href="colourstack.css?v=5">
+  <link rel="stylesheet" href="party-theme.css?v=5">
+</head>
+<body>
+  <main class="stack-game">
+    <header class="stack-header">
+      <div class="stack-title">
+        <div class="stack-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="stack-title-copy"><span>🟢 EASY · PUZZLE</span><h1>COLOUR STACK</h1></div>
+      </div>
+      <div class="stack-clock"><span>TIME LEFT</span><strong id="timeLeft">60</strong></div>
+    </header>
+
+    <section class="stack-progress" aria-label="Sorting progress">
+      <div class="progress-heading"><span>STACK PROGRESS</span><strong id="progressValue">0%</strong></div>
+      <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+      <p id="gameMessage" aria-live="polite">Pindahkan blok sampai tiap stack berisi satu warna.</p>
+    </section>
+
+    <section class="board-frame">
+      <div class="board-caption"><span>🧱</span> SORT THE BLOCKS <span>🧱</span></div>
+      <section id="tubeBoard" class="tube-board" aria-label="Colour stacks"></section>
+    </section>
+    <p class="stack-help">Pilih blok teratas, lalu pindahkan ke stack mana saja yang masih punya ruang.</p>
+  </main>
+
+  <div id="introOverlay" class="stack-overlay">
+    <section class="stack-dialog instruction-card" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+      <div class="dialog-icon">🎨 🧱</div>
+      <span class="dialog-kicker">🟢 EASY · 60 SECONDS</span>
+      <h2 id="introTitle">COLOUR STACK</h2>
+      <div class="instruction-row"><span>👆</span><p>Pilih satu stack untuk mengambil blok paling atas, lalu pilih stack tujuan.</p></div>
+      <div class="instruction-row"><span>🧱</span><p>Blok boleh dipindahkan ke stack mana saja. Warnanya tidak harus sama.</p></div>
+      <div class="instruction-row"><span>🎨</span><p>Susun semua blok sampai setiap stack berisi satu warna saja.</p></div>
+      <div class="instruction-row"><span>⏱️</span><p>Kamu punya 60 detik. Saat sisa 10 detik, layar berubah merah.</p></div>
+      <button id="startButton" class="primary-button" type="button">SIAP!</button>
+    </section>
+  </div>
+
+  <div id="resultOverlay" class="stack-overlay is-hidden">
+    <section id="resultCard" class="stack-dialog result-card" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div id="resultIcon" class="dialog-icon">🎉</div>
+      <span id="resultKicker" class="dialog-kicker">COLOUR STACK</span>
+      <h2 id="resultTitle">Stacks sorted!</h2>
+      <p id="resultMessage">Nice work bringing every colour together.</p>
+      <div id="starReward" class="star-reward">⭐ +1 STAR</div>
+      <a class="primary-button result-link" href="home.html">BACK TO MINIGAMES</a>
+    </section>
+  </div>
+
+  <div id="countdownOverlay" class="countdown-overlay is-hidden" aria-hidden="true">
+    <div class="countdown-card"><span>GET READY!</span><strong id="countdownNumber">3</strong></div>
+  </div>
+  <div id="dangerOverlay" class="danger-overlay is-hidden" aria-hidden="true"></div>
+
+  <script src="audio.js?v=5"></script>
+  <script src="colourstack.js?v=5"></script>
+</body>
+</html>
